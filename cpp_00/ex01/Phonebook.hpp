@@ -6,7 +6,7 @@
 /*   By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 09:58:00 by segarcia          #+#    #+#             */
-/*   Updated: 2023/03/27 12:39:21 by segarcia         ###   ########.fr       */
+/*   Updated: 2023/03/27 13:34:14 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,15 @@ class Phonebook {
   private:
     Contact _contacts[8];
     int     _available_idx(void);
+    int     _input(std::string str);
+    
   public:
     Phonebook(void);
     ~Phonebook(void);
     void    init_prompt(void);
     void    add_contact(void);
+    void    display_contacts(void);
+    void    view_full_info(void);
 };
 
 #endif
