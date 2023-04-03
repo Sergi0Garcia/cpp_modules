@@ -6,14 +6,13 @@
 #    By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/15 10:27:33 by segarcia          #+#    #+#              #
-#    Updated: 2023/04/03 08:47:13 by segarcia         ###   ########.fr        #
+#    Updated: 2023/04/03 12:26:17 by segarcia         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = phonebook
-SRC = Contact.cpp 		\
-	  PhoneBook.cpp  	\
-	  main.cpp
+NAME = tests
+SRC = Account.cpp 		\
+	  tests.cpp
 OBJ = $(SRC:.cpp=.o)
 
 CC = g++

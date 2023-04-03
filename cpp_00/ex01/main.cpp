@@ -6,31 +6,33 @@
 /*   By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 12:42:47 by segarcia          #+#    #+#             */
-/*   Updated: 2023/03/27 13:34:11 by segarcia         ###   ########.fr       */
+/*   Updated: 2023/04/03 09:14:41 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+#include "Colors.hpp"
 #include "Contact.hpp"
-#include "Phonebook.hpp"
+#include "PhoneBook.hpp"
 
 int main(void)
 {
-    Phonebook phonebook;
+    PhoneBook book;
     std::string command;
 
-    phonebook.init_prompt();
+    book.init_prompt();
+    std::cout << "- " ;
     std::getline(std::cin, command);
     while (command.compare("EXIT") != 0)
     {
-        std::cout << "Command: " << command << std::endl;
         if (command.compare("ADD") == 0)
-            phonebook.add_contact();
+            book.add_contact();
         if (command.compare("SEARCH") == 0)
         {
-            phonebook.display_contacts();
-            phonebook.view_full_info();
+            if (book.display_contacts() == EXIT_SUCCESS)
+                book.view_full_info();
         }
+        std::cout << "- " ;
         std::getline(std::cin, command);
     }
     return (EXIT_SUCCESS);

@@ -6,7 +6,7 @@
 /*   By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 09:58:00 by segarcia          #+#    #+#             */
-/*   Updated: 2023/03/27 13:34:14 by segarcia         ###   ########.fr       */
+/*   Updated: 2023/04/03 11:17:24 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,18 @@
 #define PHONEBOOK_HPP
 #include "Contact.hpp"
 
-class Phonebook {
+class PhoneBook {
   private:
     Contact _contacts[8];
     int     _available_idx(void);
     int     _input(std::string str);
     
   public:
-    Phonebook(void);
-    ~Phonebook(void);
+    PhoneBook(void);
+    ~PhoneBook(void);
     void    init_prompt(void);
     void    add_contact(void);
-    void    display_contacts(void);
+    int     display_contacts(void);
     void    view_full_info(void);
 };
 

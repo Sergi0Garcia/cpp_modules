@@ -6,7 +6,7 @@
 /*   By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 12:19:19 by segarcia          #+#    #+#             */
-/*   Updated: 2023/03/27 13:25:04 by segarcia         ###   ########.fr       */
+/*   Updated: 2023/04/03 11:16:11 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ class Contact {
     ~Contact(void);
     void    add(void);
     bool    valid(void);
-    void    short_view(int idx);
+    int     short_view(int idx);
     void    large_view(void);
 };
 

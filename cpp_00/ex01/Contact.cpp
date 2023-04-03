@@ -6,7 +6,7 @@
 /*   By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 12:41:08 by segarcia          #+#    #+#             */
-/*   Updated: 2023/03/27 13:24:48 by segarcia         ###   ########.fr       */
+/*   Updated: 2023/04/03 11:16:36 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,11 @@
 
 Contact::Contact(void)
 {
-    std::cout << "Constructur called" << std::endl;
     return ;
 }
 
 Contact::~Contact(void)
 {
-    std::cout << "Destructur called" << std::endl;
-    std::cout << this->_first_name << std::endl;
     return ;
 }
 
@@ -71,17 +68,21 @@ std::string Contact::_trim(std::string str)
     return str;
 }
 
- void    Contact::short_view(int idx)
+ int    Contact::short_view(int idx)
  {
     if (idx == 0 && !this->valid())
+    {
         std::cout << RED << "No users found" << DEFAULT << std::endl;
+        return (EXIT_FAILURE);
+    }
     if (!this->valid())
-        return ;
+        return (EXIT_SUCCESS);
     std::cout << BLUE << "|" << std::setw(10) << idx;
     std::cout << "|" << std::setw(10) << this->_trim(this->_first_name) << std::flush;
     std::cout << "|" << std::setw(10) << this->_trim(this->_last_name) << std::flush;
     std::cout << "|" << std::setw(10) << this->_trim(this->_nickname) << std::flush;
     std::cout << "|" << DEFAULT << std::endl;
+    return (EXIT_SUCCESS);
 }
 
 void    Contact::large_view(void)
