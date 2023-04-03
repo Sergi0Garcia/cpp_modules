@@ -6,7 +6,7 @@
 /*   By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 09:55:03 by segarcia          #+#    #+#             */
-/*   Updated: 2023/04/03 12:41:50 by segarcia         ###   ########.fr       */
+/*   Updated: 2023/04/03 13:05:27 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,14 +50,15 @@ void    Account::displayAccountsInfos( void ) {
 
 void Account::_displayTimestamp(){
     std::time_t now = std::time(NULL);
-    std::cout   << "[" << 1900 + std::localtime(&now)->tm_year
-                << 1 + std::localtime(&now)->tm_mon
-                << std::localtime(&now)->tm_mday
-                <<  "_"
-                <<  std::localtime(&now)->tm_hour
-                <<  std::localtime(&now)->tm_min
-                <<  std::localtime(&now)->tm_sec 
-                << "] ";
+    std::cout << std::setfill('0')  
+              << "[" << 1900 + std::localtime(&now)->tm_year
+              << std::setw(2) << std::localtime(&now)->tm_mon + 1
+              << std::setw(2) << std::localtime(&now)->tm_mday
+              <<  "_"
+              << std::setw(2) << std::localtime(&now)->tm_hour
+              << std::setw(2) << std::localtime(&now)->tm_min
+              << std::setw(2) << std::localtime(&now)->tm_sec 
+              << "] ";
 }
 
 Account::Account(int initial_deposit) {
@@ -85,6 +86,10 @@ Account::~Account( void ) {
 // -----------------
 // PUBLIC METHODS
 // -----------------
+
+int     Account::checkAmount( void ) const {
+    return (Account::_amount);
+}
 
 void    Account::makeDeposit( int deposit ) {
     Account::_displayTimestamp();
@@ -115,10 +120,6 @@ bool    Account::makeWithdrawal(int withdrawal ) {
     _amount -= withdrawal;
     std::cout << "amount:" << _amount << ";" << "nb_withdrawals:" << _nbWithdrawals << std::endl;
     return true;
-}
-
-int     Account::checkAmount( void ) const {
-    return (Account::_amount);
 }
 
 void    Account::displayStatus( void ) const {
