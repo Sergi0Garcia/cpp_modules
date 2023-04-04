@@ -1,29 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/04 10:26:38 by segarcia          #+#    #+#             */
-/*   Updated: 2023/04/04 14:21:08 by segarcia         ###   ########.fr       */
+/*   Created: 2023/04/04 14:17:29 by segarcia          #+#    #+#             */
+/*   Updated: 2023/04/04 14:25:03 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_HPP
-#define ZOMBIE_HPP
 #include <iostream>
+#include "Colors.hpp"
+#include "Harl.hpp"
 
-class Zombie {
-private:
-    std::string _name;
-public:
-    Zombie(std::string name);
-    ~Zombie(void);
-    void announce(void) const;
-};
-
-Zombie* newZombie(std::string name);
-void randomChump(std::string name);
-
-#endif
+int main(int argc, char **argv)
+{
+    if (argc != 2)
+    {
+        std::cout << RED << "usage: ./harlFilter <FILTER>" << RESET << std::endl;
+        return (EXIT_FAILURE);
+    }       
+    Harl harl;
+    harl.complain(argv[1]);
+    return (EXIT_SUCCESS);
+}

@@ -6,7 +6,7 @@
 /*   By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 10:38:05 by segarcia          #+#    #+#             */
-/*   Updated: 2023/04/04 11:06:59 by segarcia         ###   ########.fr       */
+/*   Updated: 2023/04/04 12:23:56 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ Zombie::~Zombie(void)
     return ;
 }
 
-void Zombie::announce(void)
+void Zombie::announce(void) const
 {
     std::cout << this->_name << ": BraiiiiiiinnnzzzZ..." << std::endl;
 }

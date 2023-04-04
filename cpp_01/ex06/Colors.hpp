@@ -1,29 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   Colors.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/04 10:26:38 by segarcia          #+#    #+#             */
-/*   Updated: 2023/04/04 14:21:08 by segarcia         ###   ########.fr       */
+/*   Created: 2023/03/27 12:44:46 by segarcia          #+#    #+#             */
+/*   Updated: 2023/04/04 14:16:49 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_HPP
-#define ZOMBIE_HPP
-#include <iostream>
+#ifndef COLORS_HPP
+#define COLORS_HPP
 
-class Zombie {
-private:
-    std::string _name;
-public:
-    Zombie(std::string name);
-    ~Zombie(void);
-    void announce(void) const;
-};
-
-Zombie* newZombie(std::string name);
-void randomChump(std::string name);
+#define RED "\033[1;31m"
+#define PURPLE "\e[95m"
+#define GREEN "\e[92;5;118m"
+#define BLUE "\033[1;34m"
+#define YELLOW "\e[93;5;226m"
+#define GRAY "\e[33;2;37m"
+#define RESET "\e[0m"
+#define CURSIVE "\e[33;3m"
 
 #endif
