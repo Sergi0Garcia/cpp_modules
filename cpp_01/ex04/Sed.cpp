@@ -6,7 +6,7 @@
 /*   By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 10:17:26 by segarcia          #+#    #+#             */
-/*   Updated: 2023/04/05 11:39:47 by segarcia         ###   ########.fr       */
+/*   Updated: 2023/04/05 12:18:07 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,12 @@ std::string Sed::ftReplace(std::string source, std::string s1, std::string s2)
 {
     if (!s1.compare(s2))
         return (source);
-    while (source.find(s1) != std::string::npos)
+    size_t pos = 0;
+    while ((pos = source.find(s1, pos)) != std::string::npos)
     {
-        std::size_t found = source.find(s1);
-        source.erase(found, s1.length());
-        source.insert(found, s2);
+        source.erase(pos, s1.length());
+        source.insert(pos, s2);
+        pos += s2.length();
     }
     return (source);
 }
