@@ -6,7 +6,7 @@
 /*   By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 11:49:15 by segarcia          #+#    #+#             */
-/*   Updated: 2023/04/04 11:57:44 by segarcia         ###   ########.fr       */
+/*   Updated: 2023/04/05 12:40:30 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,6 @@ int main(void)
     std::cout << *strPTR << std::endl;
     std::cout << strREF << std::endl;
     
+    // system("leaks brain");
     return (EXIT_SUCCESS);
 }

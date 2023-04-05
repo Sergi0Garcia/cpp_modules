@@ -6,7 +6,7 @@
 /*   By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 12:28:17 by segarcia          #+#    #+#             */
-/*   Updated: 2023/04/04 13:13:22 by segarcia         ###   ########.fr       */
+/*   Updated: 2023/04/05 12:44:50 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,6 @@ int main()
         club.setType("some other type of club");
         jim.attack();
     }
-    // system("leaks War");
+    // system("leaks war");
     return (0);
 }

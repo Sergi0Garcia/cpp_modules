@@ -6,11 +6,11 @@
 #    By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/04 09:59:27 by segarcia          #+#    #+#              #
-#    Updated: 2023/04/04 13:27:54 by segarcia         ###   ########.fr        #
+#    Updated: 2023/04/05 12:46:46 by segarcia         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= Harl
+NAME		= harl
 	
 CC			= g++
 RM			= rm -rf

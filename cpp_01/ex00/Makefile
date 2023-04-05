@@ -6,11 +6,11 @@
 #    By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/04 09:59:27 by segarcia          #+#    #+#              #
-#    Updated: 2023/04/04 10:59:59 by segarcia         ###   ########.fr        #
+#    Updated: 2023/04/05 12:34:46 by segarcia         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= Zombie
+NAME		= zombie
 	
 CC			= g++
 RM			= rm -rf

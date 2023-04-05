@@ -6,7 +6,7 @@
 /*   By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 13:26:23 by segarcia          #+#    #+#             */
-/*   Updated: 2023/04/04 14:06:31 by segarcia         ###   ########.fr       */
+/*   Updated: 2023/04/05 12:57:03 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ int main(void)
     harl.complain("WARNING");
     harl.complain("ERROR");
     harl.complain("UNKNOWN");
-    // system("leaks Harl");
+    harl.complain("");
+    // system("leaks harl");
     return (EXIT_SUCCESS);
 }

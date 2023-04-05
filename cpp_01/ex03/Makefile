@@ -6,11 +6,11 @@
 #    By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/04 09:59:27 by segarcia          #+#    #+#              #
-#    Updated: 2023/04/04 12:37:34 by segarcia         ###   ########.fr        #
+#    Updated: 2023/04/05 12:43:17 by segarcia         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= War
+NAME		= war
 	
 CC			= g++
 RM			= rm -rf

@@ -6,11 +6,11 @@
 #    By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/04 09:59:27 by segarcia          #+#    #+#              #
-#    Updated: 2023/04/04 11:42:55 by segarcia         ###   ########.fr        #
+#    Updated: 2023/04/05 12:37:00 by segarcia         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= Horde
+NAME		= horde
 	
 CC			= g++
 RM			= rm -rf

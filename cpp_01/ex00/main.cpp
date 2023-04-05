@@ -6,7 +6,7 @@
 /*   By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 10:00:27 by segarcia          #+#    #+#             */
-/*   Updated: 2023/04/04 11:12:36 by segarcia         ###   ########.fr       */
+/*   Updated: 2023/04/05 12:37:48 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,6 @@ int main(void)
 
     delete (zombieInHeap);
     delete (zombieInHeapFromFunction);
+    // system("leaks zombie");
     return (EXIT_SUCCESS);
 }

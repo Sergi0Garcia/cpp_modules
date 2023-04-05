@@ -6,7 +6,7 @@
 /*   By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 10:09:29 by segarcia          #+#    #+#             */
-/*   Updated: 2023/04/05 12:18:24 by segarcia         ###   ########.fr       */
+/*   Updated: 2023/04/05 12:56:06 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,6 @@ int main(int argc, char **argv)
     }
     bool execution;
     execution = sedController.execute();
+    // system("leaks sed");
     return (execution);
 }

@@ -6,11 +6,11 @@
 #    By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/04 09:59:27 by segarcia          #+#    #+#              #
-#    Updated: 2023/04/04 11:50:05 by segarcia         ###   ########.fr        #
+#    Updated: 2023/04/05 12:39:37 by segarcia         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= Brain
+NAME		= brain
 	
 CC			= g++
 RM			= rm -rf
