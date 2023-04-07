@@ -6,7 +6,7 @@
 /*   By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 10:17:26 by segarcia          #+#    #+#             */
-/*   Updated: 2023/04/05 12:33:59 by segarcia         ###   ########.fr       */
+/*   Updated: 2023/04/05 13:07:24 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,11 +57,13 @@ int Sed::execute(void)
     if (content.empty())
     {
         std::cout << RED << "Empty file" << std::endl;
+        file.close();
         return (EXIT_FAILURE);
     }
     std::ofstream outFile(this->_outfile);
     if (!outFile.is_open()) {
         std::cout << RED << "Failed to create file." << std::endl;
+        file.close();
         return (EXIT_FAILURE);
     }
     outFile << this->ftReplace(content, this->_s1, this->_s2);
