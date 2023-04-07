@@ -6,7 +6,7 @@
 /*   By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 15:39:26 by segarcia          #+#    #+#             */
-/*   Updated: 2023/04/07 11:27:53 by segarcia         ###   ########.fr       */
+/*   Updated: 2023/04/07 15:03:32 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ public:
 	Fixed(void);
 	Fixed(const int num);
 	Fixed(const float num);
-	Fixed(const Fixed& other); // copy constructor
-	Fixed& operator=(const Fixed& other); // copy assignment operator overload
+	Fixed(const Fixed& other); 					// copy constructor
+	Fixed& operator=(const Fixed& other); 		// copy assignment operator overload
 	~Fixed(void);
 	
 	int 	getRawBits(void) const;
@@ -44,10 +44,15 @@ public:
 	Fixed   operator*(const Fixed &other) const;
 	Fixed   operator/(const Fixed &other) const;
 
- 	Fixed&  operator++(void); // ++i
-	Fixed 	operator++(int);  // i++;
-	Fixed&  operator--(void); // --i
-	Fixed 	operator--(int);  // i--;
+ 	Fixed&  operator++(void); 				// ++i
+	Fixed 	operator++(int);  				// i++;
+	Fixed&  operator--(void); 				// --i
+	Fixed 	operator--(int);  				// i--;
+
+	static Fixed& min(Fixed &num1, Fixed &num2);
+	static const Fixed& min(const Fixed &num1, const Fixed &num2);
+	static Fixed& max(Fixed &num1, Fixed &num2);
+	static const Fixed& max(const Fixed &num1, const Fixed &num2);
 };
 
 std::ostream &operator<<(std::ostream &stream, Fixed const &num);

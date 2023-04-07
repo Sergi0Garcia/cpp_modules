@@ -6,7 +6,7 @@
 /*   By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 15:48:18 by segarcia          #+#    #+#             */
-/*   Updated: 2023/04/07 11:28:03 by segarcia         ###   ########.fr       */
+/*   Updated: 2023/04/07 15:03:54 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -153,6 +153,38 @@ Fixed	Fixed::operator--(int)
 	Fixed copy(*this);
 	this->_fixedPointNumber--;
 	return (copy);
+}
+
+Fixed& Fixed::min(Fixed &num1, Fixed &num2)
+{
+	// std::cout << "min ..." << std::endl;
+	if (num1 < num2)
+		return (num1);
+	return (num2);	
+}
+
+const Fixed& Fixed::min(const Fixed &num1, const Fixed &num2)
+{
+	// std::cout << "const min ..." << std::endl;
+	if (num1 < num2)
+		return (num1);
+	return (num2);	
+}
+
+Fixed& Fixed::max(Fixed &num1, Fixed &num2)
+{
+	// std::cout << "max ..." << std::endl;
+	if (num1 > num2)
+		return (num1);
+	return (num2);	
+}
+
+const Fixed& Fixed::max(const Fixed &num1, const Fixed &num2)
+{
+	// std::cout << "const max ..." << std::endl;
+	if (num1 > num2)
+		return (num1);
+	return (num2);	
 }
 
 std::ostream &operator<<(std::ostream &stream, Fixed const &num) 
