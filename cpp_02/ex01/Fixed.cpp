@@ -6,7 +6,7 @@
 /*   By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 15:48:18 by segarcia          #+#    #+#             */
-/*   Updated: 2023/04/06 22:21:40 by segarcia         ###   ########.fr       */
+/*   Updated: 2023/04/07 10:07:30 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,6 @@ Fixed& Fixed::operator=(const Fixed& other)
 
 int Fixed::getRawBits(void) const
 {
-	std::cout << "getRawBits member function called" << std::endl;
 	return (this->_fixedPointNumber);
 }
 
@@ -64,4 +63,21 @@ void Fixed::setRawBits(int const raw)
 {
 	this->_fixedPointNumber = raw;
 	return ;
+}
+
+float Fixed::toFloat(void) const
+{
+	return static_cast<float>(this->getRawBits()) / (1 << this->_fractionalBits);
+}
+
+int Fixed::toInt(void)const 
+{
+	return (this->_fixedPointNumber >> this->_fractionalBits);
+}
+
+std::ostream &operator<<(std::ostream &stream, Fixed const &num) 
+{
+	// std::cout << "stream operator overload" << std::endl;
+    stream << num.toFloat();
+    return (stream);
 }
