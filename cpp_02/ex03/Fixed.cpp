@@ -6,7 +6,7 @@
 /*   By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 15:48:18 by segarcia          #+#    #+#             */
-/*   Updated: 2023/04/07 16:48:08 by segarcia         ###   ########.fr       */
+/*   Updated: 2023/04/08 12:55:31 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,9 @@
 #include <iostream>
 #include <cmath>
 
-Fixed::Fixed(void)
+Fixed::Fixed(void) : _fixedPointNumber(0)
 {
 	// std::cout << "Default constructor called" << std::endl;
-	this->_fixedPointNumber = 0;
 	return ;
 }
 

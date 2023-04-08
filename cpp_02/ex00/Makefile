@@ -6,7 +6,7 @@
 #    By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/04 09:59:27 by segarcia          #+#    #+#              #
-#    Updated: 2023/04/06 15:57:51 by segarcia         ###   ########.fr        #
+#    Updated: 2023/04/08 11:55:48 by segarcia         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,10 +23,7 @@ OBJ			= $(addprefix $(OBJDIR)/, $(FILES:=.o))
 HEADERS		= Fixed.hpp
 
 RED			= 	\e[31m
-PURPLE		= 	\e[95m
 GREEN		=	\e[92;5;118m
-YELLOW		=	\e[93;5;226m
-GRAY		=	\e[33;2;37m
 RESET		=	\e[0m
 CURSIVE		=	\e[33;3m
 

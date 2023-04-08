@@ -6,7 +6,7 @@
 /*   By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 15:48:18 by segarcia          #+#    #+#             */
-/*   Updated: 2023/04/07 15:03:54 by segarcia         ###   ########.fr       */
+/*   Updated: 2023/04/08 12:51:30 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,9 @@
 #include <iostream>
 #include <cmath>
 
-Fixed::Fixed(void)
+Fixed::Fixed(void) :_fixedPointNumber(0)
 {
 	// std::cout << "Default constructor called" << std::endl;
-	this->_fixedPointNumber = 0;
 	return ;
 }
 
@@ -70,7 +69,7 @@ float Fixed::toFloat(void) const
 	return static_cast<float>(this->getRawBits()) / (1 << this->_fractionalBits);
 }
 
-int Fixed::toInt(void)const 
+int Fixed::toInt(void) const 
 {
 	return (this->_fixedPointNumber >> this->_fractionalBits);
 }
