@@ -6,7 +6,7 @@
 /*   By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 07:51:33 by segarcia          #+#    #+#             */
-/*   Updated: 2023/04/10 11:14:27 by segarcia         ###   ########.fr       */
+/*   Updated: 2023/04/10 13:15:18 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,16 @@
 int main(void)
 {
     FragTrap frag("Frog");
+    FragTrap def;
+    FragTrap copy(def);
+
     frag.highFivesGuys();
     frag.showStatus();
     frag.takeDamage(500);
+    
     frag.highFivesGuys();
+    def.highFivesGuys();
+
+    // system("leaks ex02");
     return (0);
 }

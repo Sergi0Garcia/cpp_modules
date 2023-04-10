@@ -6,7 +6,7 @@
 /*   By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 08:01:57 by segarcia          #+#    #+#             */
-/*   Updated: 2023/04/10 10:45:25 by segarcia         ###   ########.fr       */
+/*   Updated: 2023/04/10 13:13:40 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ bool ClapTrap::validAction(void) const
         return (false);
     }
     else if (this->_energyPoints <= 0){
-        std::cout << this->_name << " has no hit energy points" << std::endl;
+        std::cout << this->_name << " has no energy points" << std::endl;
         return (false);
     }
     return (true);
@@ -88,7 +88,7 @@ void ClapTrap::attack(const std::string& target)
 {
     if (!this->validAction())
         return;
-    std::cout << "ClapTrap " << this->_name << " attacks " << target << ", causing " << this->_attackDamage << " points of damage!" << std::endl;
+    std::cout << "[CLAPTRAP] " << this->_name << " attacks " << target << ", causing " << this->_attackDamage << " points of damage!" << std::endl;
     this->_energyPoints -= 1;
     return ;
 }
@@ -96,12 +96,12 @@ void ClapTrap::attack(const std::string& target)
 void ClapTrap::takeDamage(unsigned int amount)
 {
     if (this->_hitPoints == 0){
-        std::cout << "ClapTrap " << this->_name << " is already dead :(" << std::endl;
+        std::cout << "[CLAPTRAP] " << this->_name << " is already dead :(" << std::endl;
         return ;
     }
-    std::cout << "ClapTrap " << this->_name << " takes " << amount << " damage!" << std::endl;
+    std::cout << "[CLAPTRAP] " << this->_name << " takes " << amount << " damage!" << std::endl;
     if (amount >= this->_hitPoints){
-        std::cout << "ClapTrap " << this->_name << " died :(" << std::endl;
+        std::cout << "[CLAPTRAP] " << this->_name << " died :(" << std::endl;
         this->_hitPoints = 0;
         return ;
     }
@@ -113,7 +113,7 @@ void ClapTrap::beRepaired(unsigned int amount)
 {
     if (!this->validAction())
         return;
-    std::cout << "ClapTrap " << this->_name << " repairs with " << amount << " hit points!" << std::endl;
+    std::cout << "[CLAPTRAP] " << this->_name << " repairs with " << amount << " hit points!" << std::endl;
     this->_hitPoints += amount;
     this->_energyPoints -= 1;
     return ;

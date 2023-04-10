@@ -6,7 +6,7 @@
 /*   By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 08:01:57 by segarcia          #+#    #+#             */
-/*   Updated: 2023/04/10 10:42:58 by segarcia         ###   ########.fr       */
+/*   Updated: 2023/04/10 13:00:55 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ ClapTrap::ClapTrap(const ClapTrap& other)
     std::cout << YELLOW;
     std::cout << "Copy constructor called" << std::endl;
     std::cout << RESET;
+    return ;
 }
 
 ClapTrap& ClapTrap::operator=(const ClapTrap& other)
@@ -61,7 +62,7 @@ bool ClapTrap::validAction(void) const
         return (false);
     }
     else if (this->_energyPoints <= 0){
-        std::cout << this->_name << " has no hit energy points" << std::endl;
+        std::cout << this->_name << " has no energy points" << std::endl;
         return (false);
     }
     return (true);

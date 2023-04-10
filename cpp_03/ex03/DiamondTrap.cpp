@@ -6,7 +6,7 @@
 /*   By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 12:00:33 by segarcia          #+#    #+#             */
-/*   Updated: 2023/04/10 12:42:43 by segarcia         ###   ########.fr       */
+/*   Updated: 2023/04/10 13:38:23 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,12 +44,17 @@ DiamondTrap::DiamondTrap(void) : ClapTrap(), FragTrap(), ScavTrap()
 DiamondTrap::DiamondTrap(const DiamondTrap& other)
 {
     *this = other;
+    std::cout << YELLOW;
+    std::cout << "[DIAMODNTRAP]: ";
+    std::cout << "Copy constructor called" << std::endl;
+    std::cout << RESET;
     return ;
 }
 
 DiamondTrap& DiamondTrap::operator=(const DiamondTrap& other)
 {
     ClapTrap::operator=(other);
+    this->_name = other._name;
     return (*this);
 }
 

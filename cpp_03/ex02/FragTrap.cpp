@@ -6,7 +6,7 @@
 /*   By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 09:27:27 by segarcia          #+#    #+#             */
-/*   Updated: 2023/04/10 11:15:01 by segarcia         ###   ########.fr       */
+/*   Updated: 2023/04/10 13:14:58 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ bool FragTrap::validAction(void) const
     }
     else if (this->_energyPoints <= 0){
         std::cout << "[FRAGTRAP]: ";
-        std::cout << this->_name << " has no hit energy points" << std::endl;
+        std::cout << this->_name << " has no energy points" << std::endl;
         return (false);
     }
     return (true);
@@ -82,7 +82,7 @@ void FragTrap::highFivesGuys(void)
 {
     if (!this->validAction())
         return;
-    std::cout << "[FRAGTRAP]: ";
-    std::cout << "High fives for everyone 👋!" << std::endl;
+    std::cout << "[FRAGTRAP]: " << this->_name;
+    std::cout << " High fives for everyone 👋!" << std::endl;
     this->_energyPoints -= 1;
 }

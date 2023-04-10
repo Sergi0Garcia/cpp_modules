@@ -6,7 +6,7 @@
 /*   By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 11:22:04 by segarcia          #+#    #+#             */
-/*   Updated: 2023/04/10 12:36:51 by segarcia         ###   ########.fr       */
+/*   Updated: 2023/04/10 13:23:44 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ public:
     ~DiamondTrap(void);
     DiamondTrap(const DiamondTrap& other);
     DiamondTrap& operator=(const DiamondTrap& other);
+    
     using ScavTrap::attack;
     void whoAmI(void);
 };

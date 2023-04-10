@@ -6,7 +6,7 @@
 #    By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/04 09:59:27 by segarcia          #+#    #+#              #
-#    Updated: 2023/04/10 12:31:20 by segarcia         ###   ########.fr        #
+#    Updated: 2023/04/10 13:38:41 by segarcia         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME		= ex03
 	
 CC			= g++
 RM			= rm -rf
-FLAGS		= -Wall -Wextra -Werror -Wshadow -Wno-shadow -std=c++98
+FLAGS		= -Wall -Wextra -Werror -std=c++98
 
 OBJDIR 		= .obj
 FILES		= main ClapTrap FragTrap ScavTrap DiamondTrap
