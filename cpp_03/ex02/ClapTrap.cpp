@@ -6,7 +6,7 @@
 /*   By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 08:01:57 by segarcia          #+#    #+#             */
-/*   Updated: 2023/04/10 13:13:40 by segarcia         ###   ########.fr       */
+/*   Updated: 2023/04/15 21:12:38 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ ClapTrap::ClapTrap(std::string name): _name(name), _hitPoints(10), _energyPoints
     std::cout << GREEN;
     std::cout << "[CLAPTRAP]: ";
     std::cout << this->_name << " constructor called" << std::endl;
-    std::cout << RESET;
+    std::cout << RESET; 
     return ;
 }
 
