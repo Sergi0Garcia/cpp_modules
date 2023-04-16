@@ -6,7 +6,7 @@
 /*   By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/15 22:32:51 by segarcia          #+#    #+#             */
-/*   Updated: 2023/04/16 16:19:10 by segarcia         ###   ########.fr       */
+/*   Updated: 2023/04/16 16:56:02 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ Dog::Dog(const Dog &other) : Animal(other) {
 Dog &Dog::operator=(const Dog &other) {
   if (this != &other) {
     Animal::operator=(other);
-    if (this->_brain != nullptr) {
+    if (this->_brain != NULL) {
       delete (this->_brain);
     }
     this->_brain = new Brain(*other._brain);

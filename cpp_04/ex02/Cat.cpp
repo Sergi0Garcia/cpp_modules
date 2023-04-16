@@ -6,23 +6,23 @@
 /*   By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/16 12:48:41 by segarcia          #+#    #+#             */
-/*   Updated: 2023/04/16 16:55:44 by segarcia         ###   ########.fr       */
+/*   Updated: 2023/04/16 16:55:35 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
-#include "Animal.hpp"
+#include "AAnimal.hpp"
 #include "Brain.hpp"
 #include "Colors.hpp"
 
-Cat::Cat(void) : Animal("Cat") {
+Cat::Cat(void) : AAnimal("Cat") {
   std::cout << GREEN;
   std::cout << "[Cat] constructor called" << std::endl;
   std::cout << RESET;
   this->_brain = new Brain();
 };
 
-Cat::Cat(const Cat &other) : Animal(other) {
+Cat::Cat(const Cat &other) : AAnimal(other) {
   std::cout << YELLOW;
   std::cout << "[Cat] copy constructor called" << std::endl;
   std::cout << RESET;
@@ -32,7 +32,7 @@ Cat::Cat(const Cat &other) : Animal(other) {
 
 Cat &Cat::operator=(const Cat &other) {
   if (this != &other) {
-    Animal::operator=(other);
+    AAnimal::operator=(other);
     if (this->_brain != NULL) {
       std::cout << "Not null pointer in cat brain" << std::endl;
       delete (this->_brain);
