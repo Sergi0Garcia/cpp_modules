@@ -6,7 +6,7 @@
 /*   By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/16 17:06:12 by segarcia          #+#    #+#             */
-/*   Updated: 2023/04/17 13:49:11 by segarcia         ###   ########.fr       */
+/*   Updated: 2023/04/17 13:59:05 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include "AMateria.hpp"
 #include <iostream>
 
-class AMateria;
+#pragma once
 
 class ICharacter {
 public:

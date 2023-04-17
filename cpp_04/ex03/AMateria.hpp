@@ -6,7 +6,7 @@
 /*   By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/16 17:04:34 by segarcia          #+#    #+#             */
-/*   Updated: 2023/04/17 13:49:28 by segarcia         ###   ########.fr       */
+/*   Updated: 2023/04/17 14:00:43 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include "ICharacter.hpp"
 #include <iostream>
 
+#pragma once
 class ICharacter;
 
 class AMateria {
