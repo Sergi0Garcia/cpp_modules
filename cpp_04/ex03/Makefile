@@ -6,7 +6,7 @@
 #    By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/04 09:59:27 by segarcia          #+#    #+#              #
-#    Updated: 2023/04/16 19:02:23 by segarcia         ###   ########.fr        #
+#    Updated: 2023/04/18 14:53:01 by segarcia         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,10 +17,10 @@ RM			= rm -rf
 FLAGS		= -Wall -Wextra -Werror -std=c++98
 
 OBJDIR 		= .obj
-FILES		= main
+FILES		= main AMateria Character MateriaSource Cure Ice
 SRC			= $(FILES:=.cpp)
 OBJ			= $(addprefix $(OBJDIR)/, $(FILES:=.o))
-HEADERS		= AMateria.hpp ICharacter.hpp
+HEADERS		= AMateria.hpp ICharacter.hpp Character.hpp IMateriaSource.hpp MateriaSource.hpp Cure.hpp Ice.hpp
 
 RED			= 	\e[31m
 GREEN		=	\e[92;5;118m

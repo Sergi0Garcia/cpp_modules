@@ -1,34 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AMateria.hpp                                       :+:      :+:    :+:   */
+/*   Ice.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/16 17:04:34 by segarcia          #+#    #+#             */
-/*   Updated: 2023/04/18 13:42:29 by segarcia         ###   ########.fr       */
+/*   Created: 2023/04/18 14:53:09 by segarcia          #+#    #+#             */
+/*   Updated: 2023/04/18 14:53:48 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef AMATERIA_HPP
-#define AMATERIA_HPP
-#include <iostream>
+#ifndef ICE_HPP
+#define ICE_HPP
+#include "AMateria.hpp"
 
-// Forward declaration
-class ICharacter;
-
-class AMateria {
-protected:
-  std::string _type;
-
+class Ice : public AMateria {
 public:
-  AMateria(void);
-  AMateria(std::string const &type);
-  AMateria(const AMateria &other);
-  virtual ~AMateria();
+  Ice(void);
+  Ice(const Ice &other);
+  Ice &operator=(const Ice &other);
+  ~Ice(void);
 
-  std::string const &getType() const; // Returns the materia type
-  virtual AMateria *clone() const = 0;
+  virtual AMateria *clone(void) const;
   virtual void use(ICharacter &target);
 };
 

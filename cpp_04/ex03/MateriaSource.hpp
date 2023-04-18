@@ -6,15 +6,16 @@
 /*   By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 13:31:11 by segarcia          #+#    #+#             */
-/*   Updated: 2023/04/17 13:38:50 by segarcia         ###   ########.fr       */
+/*   Updated: 2023/04/18 14:41:43 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MATERIASOURCE_HPP
 #define MATERIASOURCE_HPP
 #include "AMateria.hpp"
+#include "IMateriaSource.hpp"
 
-class MateriaSource {
+class MateriaSource : public IMateriaSource {
 public:
   MateriaSource(void);
   MateriaSource(const MateriaSource &other);
