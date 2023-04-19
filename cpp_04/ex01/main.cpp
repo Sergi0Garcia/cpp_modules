@@ -6,7 +6,7 @@
 /*   By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 07:51:33 by segarcia          #+#    #+#             */
-/*   Updated: 2023/04/16 16:35:40 by segarcia         ###   ########.fr       */
+/*   Updated: 2023/04/19 14:47:40 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,28 @@
 
 // Check for Deep Copy
 void tester(void) {
+  Cat cat;
+  Cat newCat(cat);
+  Cat differentCat;
+
+  differentCat = cat;
+
+  std::cout << "Original cat: " << cat.getType() << " - Address: " << &cat
+            << std::endl;
+  std::cout << "New cat: " << newCat.getType() << " - Address: " << &newCat
+            << std::endl;
+  std::cout << "Different cat: " << differentCat.getType()
+            << " - Address: " << &differentCat << std::endl;
+
   std::cout << std::endl;
   Dog dog;
+  std::cout << "starting with new dog" << std::endl;
   Dog newDog(dog);
+  std::cout << "ending with new dog" << std::endl;
   Dog differentDog;
 
   differentDog = dog;
+
   std::cout << "Original dog: " << dog.getType() << " - Address: " << &dog
             << std::endl;
   std::cout << "New dog: " << newDog.getType() << " - Address: " << &newDog
@@ -34,25 +50,14 @@ void tester(void) {
 
   std::cout << std::endl;
 
-  Cat cat;
-  Cat newCat(cat);
-  Cat differentCat;
-
-  differentCat = cat;
-  std::cout << "Original cat: " << cat.getType() << " - Address: " << &cat
-            << std::endl;
-  std::cout << "New cat: " << newCat.getType() << " - Address: " << &newCat
-            << std::endl;
-  std::cout << "Different cat: " << differentCat.getType()
-            << " - Address: " << &differentCat << std::endl;
-
-  // system("leaks ex01");
+  system("leaks ex01");
 }
 
 int main(void) {
 
   // Testing for deep copies
-  // tester();
+  tester();
+  return (1);
 
   const Animal *j = new Dog();
   const Animal *i = new Cat();

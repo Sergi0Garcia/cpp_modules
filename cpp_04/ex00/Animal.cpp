@@ -6,14 +6,14 @@
 /*   By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/15 21:52:34 by segarcia          #+#    #+#             */
-/*   Updated: 2023/04/16 13:21:48 by segarcia         ###   ########.fr       */
+/*   Updated: 2023/04/19 09:47:24 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
 #include "Colors.hpp"
 
-Animal::Animal() : _type("default") {
+Animal::Animal(void) : _type("default") {
   std::cout << GREEN;
   std::cout << "[Animal] default constructor called" << std::endl;
   std::cout << RESET;
@@ -47,7 +47,7 @@ void Animal::makeSound(void) const {
 
 std::string Animal::getType(void) const { return (this->_type); }
 
-Animal::~Animal() {
+Animal::~Animal(void) {
   std::cout << RED;
   std::cout << "[Animal] destructor called" << std::endl;
   std::cout << RESET;

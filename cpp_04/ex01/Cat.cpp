@@ -6,7 +6,7 @@
 /*   By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/16 12:48:41 by segarcia          #+#    #+#             */
-/*   Updated: 2023/04/16 16:55:44 by segarcia         ###   ########.fr       */
+/*   Updated: 2023/04/19 14:45:18 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include "Animal.hpp"
 #include "Brain.hpp"
 #include "Colors.hpp"
+#include <cstddef>
 
 Cat::Cat(void) : Animal("Cat") {
   std::cout << GREEN;
@@ -34,10 +35,9 @@ Cat &Cat::operator=(const Cat &other) {
   if (this != &other) {
     Animal::operator=(other);
     if (this->_brain != NULL) {
-      std::cout << "Not null pointer in cat brain" << std::endl;
-      delete (this->_brain);
+      delete this->_brain;
     }
-    this->_brain = new Brain(*other._brain);
+    this->_brain = other._brain;
   }
   return (*this);
 }
@@ -54,3 +54,5 @@ void Cat::makeSound(void) const {
   std::cout << "[Cat] sound 🔊" << std::endl;
   std::cout << RESET;
 }
+
+void Cat::printBrainAdress(void) const { this->_brain->getAddress(); }

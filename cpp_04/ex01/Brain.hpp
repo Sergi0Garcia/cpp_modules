@@ -6,7 +6,7 @@
 /*   By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/16 13:45:48 by segarcia          #+#    #+#             */
-/*   Updated: 2023/04/16 15:03:50 by segarcia         ###   ########.fr       */
+/*   Updated: 2023/04/19 14:41:56 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ public:
   Brain(const Brain &other);
   Brain &operator=(const Brain &other);
   ~Brain(void);
+  void getAddress(void) const;
 
 private:
   std::string _ideas[100];

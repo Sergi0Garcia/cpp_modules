@@ -6,7 +6,7 @@
 /*   By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/16 12:47:33 by segarcia          #+#    #+#             */
-/*   Updated: 2023/04/16 15:30:54 by segarcia         ###   ########.fr       */
+/*   Updated: 2023/04/19 14:45:25 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ public:
   ~Cat(void);
 
   void makeSound(void) const;
+  void printBrainAdress(void) const;
 };
 
 #endif

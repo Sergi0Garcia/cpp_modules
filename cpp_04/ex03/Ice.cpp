@@ -6,7 +6,7 @@
 /*   By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 14:53:56 by segarcia          #+#    #+#             */
-/*   Updated: 2023/04/18 15:03:54 by segarcia         ###   ########.fr       */
+/*   Updated: 2023/04/19 09:38:22 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ Ice::Ice(void) : AMateria("ice") {
   std::cout << RESET;
 }
 
-Ice::Ice(const Ice &other) {
+Ice::Ice(const Ice &other) : AMateria(other) {
   *this = other;
   std::cout << YELLOW;
   std::cout << "[Ice] copy constructor called" << std::endl;

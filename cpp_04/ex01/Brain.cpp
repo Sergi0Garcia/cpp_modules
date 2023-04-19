@@ -6,7 +6,7 @@
 /*   By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/16 13:55:13 by segarcia          #+#    #+#             */
-/*   Updated: 2023/04/16 16:12:00 by segarcia         ###   ########.fr       */
+/*   Updated: 2023/04/19 14:29:41 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,4 +39,8 @@ Brain::~Brain(void) {
   std::cout << RED;
   std::cout << "[Brain] destructor called" << std::endl;
   std::cout << RESET;
+}
+
+void Brain::getAddress(void) const {
+  std::cout << "Brain pointer is: " << this << std::endl;
 }

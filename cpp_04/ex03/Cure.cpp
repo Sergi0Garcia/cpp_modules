@@ -6,7 +6,7 @@
 /*   By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 14:46:27 by segarcia          #+#    #+#             */
-/*   Updated: 2023/04/18 15:04:00 by segarcia         ###   ########.fr       */
+/*   Updated: 2023/04/19 09:35:41 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ Cure::Cure(void) : AMateria("cure") {
   std::cout << RESET;
 }
 
-Cure::Cure(const Cure &other) {
+Cure::Cure(const Cure &other) : AMateria(other) {
   *this = other;
   std::cout << YELLOW;
   std::cout << "[Cure] copy constructor called" << std::endl;
