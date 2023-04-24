@@ -6,7 +6,7 @@
 /*   By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 13:58:52 by segarcia          #+#    #+#             */
-/*   Updated: 2023/04/18 15:02:30 by segarcia         ###   ########.fr       */
+/*   Updated: 2023/04/24 09:40:05 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,13 @@ Character::~Character(void) {
 std::string const &Character::getName(void) const { return (this->_name); }
 
 void Character::equip(AMateria *m) {
+  if (m == NULL) {
+    std::cout << RED;
+    std::cout << "[Character] " << this->getName()
+              << " cannot equipp NULL Materia " << std::endl;
+    std::cout << RESET;
+    return;
+  }
   for (int i = 0; i < 4; i++) {
     if (this->_inventory[i] == NULL) {
       this->_inventory[i] = m;

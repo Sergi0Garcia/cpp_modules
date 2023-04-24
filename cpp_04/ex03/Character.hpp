@@ -6,7 +6,7 @@
 /*   By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/16 20:34:43 by segarcia          #+#    #+#             */
-/*   Updated: 2023/04/18 14:22:20 by segarcia         ###   ########.fr       */
+/*   Updated: 2023/04/24 09:21:53 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ public:
   Character &operator=(const Character &other);
   ~Character(void);
 
+  // Defined in interface
   std::string const &getName(void) const;
   void equip(AMateria *m);
   void unequip(int idx);

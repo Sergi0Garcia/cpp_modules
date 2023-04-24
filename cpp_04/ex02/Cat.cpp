@@ -6,7 +6,7 @@
 /*   By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/16 12:48:41 by segarcia          #+#    #+#             */
-/*   Updated: 2023/04/16 16:55:35 by segarcia         ###   ########.fr       */
+/*   Updated: 2023/04/24 09:13:04 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,12 @@ Cat::Cat(const Cat &other) : AAnimal(other) {
   std::cout << "[Cat] copy constructor called" << std::endl;
   std::cout << RESET;
   this->_brain = new Brain(*other._brain);
-  *this = other;
 }
 
 Cat &Cat::operator=(const Cat &other) {
   if (this != &other) {
     AAnimal::operator=(other);
     if (this->_brain != NULL) {
-      std::cout << "Not null pointer in cat brain" << std::endl;
       delete (this->_brain);
     }
     this->_brain = new Brain(*other._brain);

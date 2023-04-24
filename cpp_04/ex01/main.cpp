@@ -6,7 +6,7 @@
 /*   By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 07:51:33 by segarcia          #+#    #+#             */
-/*   Updated: 2023/04/19 14:47:40 by segarcia         ###   ########.fr       */
+/*   Updated: 2023/04/24 09:11:25 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,9 @@ void tester(void) {
             << " - Address: " << &differentCat << std::endl;
 
   std::cout << std::endl;
+
   Dog dog;
-  std::cout << "starting with new dog" << std::endl;
   Dog newDog(dog);
-  std::cout << "ending with new dog" << std::endl;
   Dog differentDog;
 
   differentDog = dog;
@@ -49,15 +48,13 @@ void tester(void) {
             << " - Address: " << &differentDog << std::endl;
 
   std::cout << std::endl;
-
-  system("leaks ex01");
+  // system("leaks ex01");
 }
 
 int main(void) {
 
   // Testing for deep copies
-  tester();
-  return (1);
+  // tester();
 
   const Animal *j = new Dog();
   const Animal *i = new Cat();

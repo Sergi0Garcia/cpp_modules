@@ -6,7 +6,7 @@
 /*   By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 14:28:43 by segarcia          #+#    #+#             */
-/*   Updated: 2023/04/18 15:03:09 by segarcia         ###   ########.fr       */
+/*   Updated: 2023/04/24 09:30:52 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,9 @@ void MateriaSource::learnMateria(AMateria *m) {
 
 AMateria *MateriaSource::createMateria(const std::string &type) {
   for (int i = 0; i < 4; i++) {
-    if (this->_materias[i] && _materias[i]->getType() == type)
+    if (this->_materias[i] && this->_materias[i]->getType() == type) {
       return this->_materias[i]->clone();
+    }
   }
   return NULL;
 }

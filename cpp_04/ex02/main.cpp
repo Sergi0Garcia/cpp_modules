@@ -6,7 +6,7 @@
 /*   By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 07:51:33 by segarcia          #+#    #+#             */
-/*   Updated: 2023/04/16 16:54:50 by segarcia         ###   ########.fr       */
+/*   Updated: 2023/04/24 09:15:39 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void tester(void) {
 int main(void) {
 
   // Testing for deep copies
-  // tester();
+  //  tester();
 
   const AAnimal *j = new Dog();
   const AAnimal *i = new Cat();
@@ -75,6 +75,6 @@ int main(void) {
   for (int i = 0; i < array_size; i++) {
     delete animals[i];
   }
-  // system("leaks ex01");
+  // system("leaks ex02");
   return (0);
 }
