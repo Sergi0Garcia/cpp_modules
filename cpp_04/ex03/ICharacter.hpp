@@ -6,7 +6,7 @@
 /*   By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/16 17:06:12 by segarcia          #+#    #+#             */
-/*   Updated: 2023/04/24 10:37:37 by segarcia         ###   ########.fr       */
+/*   Updated: 2023/04/24 11:09:10 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 #define ICHARACTER_HPP
 #include "AMateria.hpp"
 #include <iostream>
-#include <sys/_types/_off_t.h>
 
 class ICharacter {
 public:
