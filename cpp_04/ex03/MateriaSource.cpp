@@ -6,7 +6,7 @@
 /*   By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 14:28:43 by segarcia          #+#    #+#             */
-/*   Updated: 2023/04/24 09:30:52 by segarcia         ###   ########.fr       */
+/*   Updated: 2023/04/24 10:58:42 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,10 @@ MateriaSource::~MateriaSource(void) {
   std::cout << RED;
   std::cout << "[MateriaSource] destructor called" << std::endl;
   std::cout << RESET;
+  for (int i = 0; i < 4; i++) {
+    if (this->_materias[i] != NULL)
+      delete this->_materias[i];
+  }
 }
 
 void MateriaSource::learnMateria(AMateria *m) {

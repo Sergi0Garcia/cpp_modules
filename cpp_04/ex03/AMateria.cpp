@@ -6,7 +6,7 @@
 /*   By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 13:19:47 by segarcia          #+#    #+#             */
-/*   Updated: 2023/04/18 14:39:13 by segarcia         ###   ########.fr       */
+/*   Updated: 2023/04/24 10:12:20 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ AMateria::AMateria(const AMateria &other) {
   std::cout << YELLOW;
   std::cout << "[AMateria] copy constructor called" << std::endl;
   std::cout << RESET;
-  *this = other;
+  (void)other;
 }
 
 AMateria::~AMateria(void) {

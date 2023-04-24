@@ -6,7 +6,7 @@
 /*   By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 13:58:52 by segarcia          #+#    #+#             */
-/*   Updated: 2023/04/24 09:40:05 by segarcia         ###   ########.fr       */
+/*   Updated: 2023/04/24 11:00:39 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,20 @@ Character::Character(const Character &other) {
 }
 
 Character &Character::operator=(const Character &other) {
+  std::cout << "Character copy operator" << std::endl;
   if (this != &other) {
     this->_name = other._name;
+    // deleting previous Materia
     for (int i = 0; i < 4; i++) {
-      this->_inventory[i] = other._inventory[i];
+      if (this->_inventory[i] != NULL) {
+        delete this->_inventory[i];
+      }
+    }
+    for (int i = 0; i < 4; i++) {
+      if (other._inventory[i] != NULL) {
+        // copying new materia
+        this->_inventory[i] = other._inventory[i]->clone();
+      }
     }
   }
   return (*this);
@@ -51,7 +61,8 @@ Character &Character::operator=(const Character &other) {
 
 Character::~Character(void) {
   std::cout << RED;
-  std::cout << "[Character] deconstructor called" << std::endl;
+  std::cout << "[Character] " << this->getName() << " deconstructor called"
+            << std::endl;
   std::cout << RESET;
   for (int i = 0; i < 4; i++) {
     if (this->_inventory[i] != NULL) {
@@ -83,17 +94,22 @@ void Character::equip(AMateria *m) {
 }
 
 void Character::unequip(int idx) {
+  if (idx > 3) {
+    std::cout << RED;
+    std::cout << "[Character] idx/slot out of range" << std::endl;
+    std::cout << RESET;
+    return;
+  }
   if (this->_inventory[idx] == NULL) {
     std::cout << BLUE;
     std::cout << "[Character] " << this->getName()
               << " cant unequip, slot in inventory not found" << std::endl;
     std::cout << RESET;
   } else {
-    delete this->_inventory[idx];
     this->_inventory[idx] = NULL;
     std::cout << BLUE;
     std::cout << "[Character] " << this->getName()
-              << "sucessfully unequiped slot " << idx << " in inventory"
+              << " sucessfully unequiped slot " << idx << " in inventory"
               << std::endl;
     std::cout << RESET;
   }
@@ -101,6 +117,18 @@ void Character::unequip(int idx) {
 }
 
 void Character::use(int idx, ICharacter &target) {
+  if (idx > 3) {
+    std::cout << RED;
+    std::cout << "[Character] idx/slot out of range" << std::endl;
+    std::cout << RESET;
+    return;
+  }
+  // if (&target == NULL) {
+  //   std::cout << RED;
+  //   std::cout << "[Character] target is NULL" << std::endl;
+  //   std::cout << RESET;
+  //   return;
+  // }
   if (this->_inventory[idx] == NULL) {
     std::cout << BLUE;
     std::cout << "[Character] " << this->getName()
