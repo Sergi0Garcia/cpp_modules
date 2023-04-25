@@ -6,10 +6,11 @@
 /*   By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/16 17:00:34 by segarcia          #+#    #+#             */
-/*   Updated: 2023/04/24 11:03:16 by segarcia         ###   ########.fr       */
+/*   Updated: 2023/04/25 10:08:48 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "AMateria.hpp"
 #include "Character.hpp"
 #include "Cure.hpp"
 #include "ICharacter.hpp"
