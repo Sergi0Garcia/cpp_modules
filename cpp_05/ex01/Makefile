@@ -6,7 +6,7 @@
 #    By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/04 09:59:27 by segarcia          #+#    #+#              #
-#    Updated: 2023/04/25 11:37:25 by segarcia         ###   ########.fr        #
+#    Updated: 2023/04/25 12:41:01 by segarcia         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,10 +17,10 @@ RM			= rm -rf
 FLAGS		= -Wall -Wextra -Werror -std=c++98
 
 OBJDIR 		= .obj
-FILES		= main Bureaucrat
+FILES		= main Bureaucrat Form
 SRC			= $(FILES:=.cpp)
 OBJ			= $(addprefix $(OBJDIR)/, $(FILES:=.o))
-HEADERS	= Bureaucrat.hpp
+HEADERS	= Bureaucrat.hpp Form.hpp
 
 RED			= 	\e[31m
 GREEN		=	\e[92;5;118m
