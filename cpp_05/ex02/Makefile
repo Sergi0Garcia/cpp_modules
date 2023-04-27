@@ -6,7 +6,7 @@
 #    By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/04 09:59:27 by segarcia          #+#    #+#              #
-#    Updated: 2023/04/25 14:04:46 by segarcia         ###   ########.fr        #
+#    Updated: 2023/04/27 13:18:33 by segarcia         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,10 +17,10 @@ RM			= rm -rf
 FLAGS		= -Wall -Wextra -Werror -std=c++98
 
 OBJDIR 		= .obj
-FILES		= main Bureaucrat AForm
+FILES		= main Bureaucrat AForm ShrubberyCreationForm RobotomyRequestForm PresidentialPardonForm
 SRC			= $(FILES:=.cpp)
 OBJ			= $(addprefix $(OBJDIR)/, $(FILES:=.o))
-HEADERS	= Bureaucrat.hpp AForm.hpp
+HEADERS	= Bureaucrat.hpp AForm.hpp ShrubberyCreationForm.hpp RobotomyRequestForm.hpp PresidentialPardonForm.hpp
 
 RED			= 	\e[31m
 GREEN		=	\e[92;5;118m
@@ -41,7 +41,9 @@ $(OBJDIR)/%.o: %.cpp $(HEADERS)
 
 clean:
 	@$(RM) $(OBJDIR) $(OBJ)
+	@find . -name "*.txt" -type f -delete
 	@printf "$(CURSIVE)$(RED)- Object files removed.$(RESET)\n"
+	@printf "$(CURSIVE)$(RED)- files txt removed.$(RESET)\n"
 
 fclean: clean
 	@$(RM) $(NAME)

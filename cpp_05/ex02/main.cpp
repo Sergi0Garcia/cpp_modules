@@ -6,18 +6,32 @@
 /*   By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 10:12:21 by segarcia          #+#    #+#             */
-/*   Updated: 2023/04/25 14:13:38 by segarcia         ###   ########.fr       */
+/*   Updated: 2023/04/27 13:23:20 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "AForm.hpp"
 #include "Bureaucrat.hpp"
+#include "PresidentialPardonForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "ShrubberyCreationForm.hpp"
 
 int main(void) {
   try {
-    std::cout << "hello world" << std::endl;
+    ShrubberyCreationForm shrubbery("s_target");
+    RobotomyRequestForm robotomy("r_target");
+    PresidentialPardonForm presidential("p_target");
+
+    Bureaucrat john("John", 1);
+    john.signForm(shrubbery);
+    john.signForm(robotomy);
+    john.signForm(presidential);
+    john.executeForm(shrubbery);
+    john.executeForm(robotomy);
+    john.executeForm(robotomy);
+    john.executeForm(presidential);
   } catch (const std::exception &e) {
+    std::cout << e.what() << std::endl;
   }
-  // system("leaks ex01");
+  // system("leaks ex02");
   return (0);
 }

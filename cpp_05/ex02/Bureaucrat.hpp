@@ -6,7 +6,7 @@
 /*   By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 10:13:55 by segarcia          #+#    #+#             */
-/*   Updated: 2023/04/25 14:03:58 by segarcia         ###   ########.fr       */
+/*   Updated: 2023/04/27 12:39:19 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,9 @@ public:
   int getGrade(void) const;
   void incrementGrade(void);
   void decrementGrade(void);
+
   void signForm(AForm &form);
+  void executeForm(AForm const &form);
 
   class GradeTooHighException : public std::exception {
   public:
