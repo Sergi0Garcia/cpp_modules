@@ -6,7 +6,7 @@
 /*   By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 12:10:01 by segarcia          #+#    #+#             */
-/*   Updated: 2023/04/27 13:05:38 by segarcia         ###   ########.fr       */
+/*   Updated: 2023/05/08 10:45:11 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void ShrubberyCreationForm::execute(Bureaucrat const &executor) const {
 
   target = this->_target;
   fileName = target.append("_shrubbery.txt");
-  ofstream.open(fileName);
+  ofstream.open(fileName.c_str());
   if (ofstream.fail())
     throw AForm::FileCreationFailed();
   ofstream << "      *" << std::endl;

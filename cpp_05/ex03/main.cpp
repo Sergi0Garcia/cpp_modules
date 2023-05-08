@@ -6,7 +6,7 @@
 /*   By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 10:12:21 by segarcia          #+#    #+#             */
-/*   Updated: 2023/04/27 14:14:28 by segarcia         ###   ########.fr       */
+/*   Updated: 2023/05/08 10:46:46 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void test(void) {
   AForm *rrf;
   rrf = someRandomIntern.makeForm("robotomy request", "Bender");
 
-  free(rrf);
+  delete rrf;
   // system("leaks ex03");
 }
 
