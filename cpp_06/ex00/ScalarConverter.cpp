@@ -6,7 +6,7 @@
 /*   By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 11:11:34 by segarcia          #+#    #+#             */
-/*   Updated: 2023/05/08 14:13:25 by segarcia         ###   ########.fr       */
+/*   Updated: 2023/05/10 12:43:05 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,9 +50,11 @@ ScalarConverter::~ScalarConverter() {
 bool ScalarConverter::is_char(void) const {
   if (_input.length() != 1)
     return (false);
-  if (std::isprint(_input[0]) && std::isalpha(_input[0]))
-    return (true);
-  return (false);
+  if (!std::isprint(_input[0]))
+    return (false);
+  if (!std::isalpha(_input[0]))
+    return (false);
+  return (true);
 }
 
 bool ScalarConverter::is_int(void) const {
@@ -77,26 +79,61 @@ bool ScalarConverter::is_int(void) const {
 
 bool ScalarConverter::is_float(void) const {
   int i = 0;
+  double value;
 
   if (_input.empty())
     return (false);
-  if (_input[i] == '+' || _input[i] == '-')
+  if (_input[0] == '.')
+    return (false);
+  if (_input[0] == '+' || _input[0] == '-')
     i = 1;
-
+  if (i == 1 && !std::isdigit(_input[i]))
+    return (false);
   int val = _input.find('.');
-  std::cout << "val: " << val << std::endl;
-
-  while (_input[i]) {
-    if (i == static_cast<int>(_input.length() - 1)) {
-      if (_input[i] != 'f')
-        return (false);
-      else
-        return (true);
-    }
-    if (!std::isdigit(_input[i]))
+  if (val == -1)
+    return (false);
+  if (!std::isdigit(_input[val + 1]))
+    return (false);
+  if (_input[static_cast<int>(_input.length() - 1)] != 'f')
+    return (false);
+  while (_input[i] && i < static_cast<int>(_input.length() - 1)) {
+    if (!std::isdigit(_input[i]) && i != val)
       return (false);
     i++;
   }
+  value = strtod(_input.c_str(), NULL);
+  if (value > std::numeric_limits<float>::max() ||
+      value < -std::numeric_limits<float>::max())
+    return (false);
+  return (true);
+}
+
+bool ScalarConverter::is_double(void) const {
+  int i = 0;
+  long double value;
+
+  if (_input.empty())
+    return (false);
+  if (_input[0] == '.')
+    return (false);
+  if (_input[0] == '+' || _input[0] == '-')
+    i = 1;
+  if (i == 1 && !std::isdigit(_input[i]))
+    return (false);
+  int val = _input.find('.');
+  if (val == -1)
+    return (false);
+  if (!std::isdigit(_input[val + 1]))
+    return (false);
+  while (_input[i] && i < static_cast<int>(_input.length())) {
+    if (!std::isdigit(_input[i]) && i != val)
+      return (false);
+    i++;
+  }
+  value = strtold(_input.c_str(), NULL);
+  if (value > std::numeric_limits<double>::max() ||
+      value < -std::numeric_limits<double>::max())
+    return (false);
   return (true);
 }
 
@@ -105,4 +142,5 @@ void ScalarConverter::convert(void) {
   std::cout << "[ScalarConverter] is_char: " << is_char() << std::endl;
   std::cout << "[ScalarConverter] is_int: " << is_int() << std::endl;
   std::cout << "[ScalarConverter] is_float: " << is_float() << std::endl;
+  std::cout << "[ScalarConverter] is_double: " << is_double() << std::endl;
 }

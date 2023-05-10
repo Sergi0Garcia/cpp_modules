@@ -6,7 +6,7 @@
 /*   By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 14:58:26 by segarcia          #+#    #+#             */
-/*   Updated: 2023/05/08 13:32:36 by segarcia         ###   ########.fr       */
+/*   Updated: 2023/05/10 12:24:12 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ private:
   bool is_char(void) const;
   bool is_int(void) const;
   bool is_float(void) const;
+  bool is_double(void) const;
 };
 
 #endif
