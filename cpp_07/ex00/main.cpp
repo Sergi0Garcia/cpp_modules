@@ -6,7 +6,7 @@
 /*   By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 12:55:10 by segarcia          #+#    #+#             */
-/*   Updated: 2023/05/11 12:59:23 by segarcia         ###   ########.fr       */
+/*   Updated: 2023/05/12 10:02:05 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,6 @@ int main(void) {
   std::cout << "c = " << c << ", d = " << d << std::endl;
   std::cout << "min( c, d ) = " << ::min(c, d) << std::endl;
   std::cout << "max( c, d ) = " << ::max(c, d) << std::endl;
+  // system("leaks whatever");
   return (0);
 }
