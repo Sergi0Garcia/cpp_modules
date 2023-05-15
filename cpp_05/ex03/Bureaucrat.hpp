@@ -6,7 +6,7 @@
 /*   By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 10:13:55 by segarcia          #+#    #+#             */
-/*   Updated: 2023/04/27 12:39:19 by segarcia         ###   ########.fr       */
+/*   Updated: 2023/05/15 10:46:28 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 
 class Bureaucrat {
 private:
-  std::string _name;
+  std::string const _name;
   int _grade;
 
 public:

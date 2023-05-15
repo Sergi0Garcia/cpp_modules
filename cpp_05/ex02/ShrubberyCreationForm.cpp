@@ -6,7 +6,7 @@
 /*   By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 12:10:01 by segarcia          #+#    #+#             */
-/*   Updated: 2023/05/08 10:45:11 by segarcia         ###   ########.fr       */
+/*   Updated: 2023/05/15 11:01:46 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,4 +71,8 @@ void ShrubberyCreationForm::execute(Bureaucrat const &executor) const {
   ofstream << "     ***" << std::endl;
   ofstream << "     ***" << std::endl;
   ofstream.close();
+  std::cout << BLUE;
+  std::cout << "[ShrubberyCreationForm] Shrubbery created correctly! "
+            << std::endl;
+  std::cout << RESET;
 }

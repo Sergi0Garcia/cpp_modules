@@ -6,7 +6,7 @@
 /*   By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 10:12:21 by segarcia          #+#    #+#             */
-/*   Updated: 2023/04/25 11:21:17 by segarcia         ###   ########.fr       */
+/*   Updated: 2023/05/15 10:43:50 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,15 +32,15 @@ void default_test(void) {
 int main(void) {
   // default_test();
   try {
-    Bureaucrat john("John", 10);
-    // Bureaucrat john("John", 151);
+    // Bureaucrat john("John", 10);
+    Bureaucrat john("John", 151);
     // Bureaucrat smith("Smith", -10);
     john.decrementGrade();
     john.incrementGrade();
     john.incrementGrade();
     std::cout << john;
   } catch (const std::exception &e) {
-    std::cout << e.what() << std::endl;
+    std::cout << "ERROR: " << e.what() << std::endl;
   }
   // system("leaks ex00");
   return (0);

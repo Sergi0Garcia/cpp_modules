@@ -6,7 +6,7 @@
 /*   By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 10:31:45 by segarcia          #+#    #+#             */
-/*   Updated: 2023/04/27 12:40:36 by segarcia         ###   ########.fr       */
+/*   Updated: 2023/05/15 10:51:03 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ Bureaucrat::Bureaucrat(const std::string name, const int grade) : _name(name) {
   std::cout << RESET;
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat &other) {
+Bureaucrat::Bureaucrat(const Bureaucrat &other) : _name(other._name) {
   std::cout << YELLOW;
   std::cout << "[Bureaucrat] copy constructor created" << std::endl;
   std::cout << RESET;
@@ -41,7 +41,6 @@ Bureaucrat::Bureaucrat(const Bureaucrat &other) {
 
 Bureaucrat &Bureaucrat::operator=(const Bureaucrat &other) {
   if (this != &other) {
-    this->_name = other._name;
     this->_grade = other._grade;
   }
   return (*this);
