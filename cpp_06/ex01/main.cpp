@@ -6,7 +6,7 @@
 /*   By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 11:27:45 by segarcia          #+#    #+#             */
-/*   Updated: 2023/05/11 11:43:34 by segarcia         ###   ########.fr       */
+/*   Updated: 2023/05/16 12:48:27 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,7 @@ int main(void) {
   // Then, ensure the return value compares equal to the original pointer.
   print_data(data);
   print_data(test);
+  std::cout << &data << " - " << &test << std::endl;
+  // system("leaks serializer");
   return (0);
 }

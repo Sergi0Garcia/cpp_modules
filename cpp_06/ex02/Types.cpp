@@ -6,12 +6,13 @@
 /*   By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 12:08:34 by segarcia          #+#    #+#             */
-/*   Updated: 2023/05/11 12:34:51 by segarcia         ###   ########.fr       */
+/*   Updated: 2023/05/16 12:45:19 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Types.hpp"
 #include "Colors.hpp"
+#include <cstdlib>
 
 Base::~Base() {}
 

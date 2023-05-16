@@ -6,13 +6,13 @@
 #    By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/04 09:59:27 by segarcia          #+#    #+#              #
-#    Updated: 2023/05/11 12:17:55 by segarcia         ###   ########.fr        #
+#    Updated: 2023/05/16 12:44:32 by segarcia         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		= real_type
 	
-CC			= g++
+CC			= c++
 RM			= rm -rf
 FLAGS		= -Wall -Wextra -Werror -std=c++98
 

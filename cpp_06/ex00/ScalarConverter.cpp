@@ -6,14 +6,16 @@
 /*   By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 11:11:34 by segarcia          #+#    #+#             */
-/*   Updated: 2023/05/10 14:16:07 by segarcia         ###   ########.fr       */
+/*   Updated: 2023/05/16 12:39:34 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
 #include "Colors.hpp"
 #include <cctype>
+#include <climits>
 #include <cstdlib>
+#include <limits>
 #include <string>
 
 ScalarConverter::ScalarConverter(const std::string &input) : _input(input) {
@@ -35,6 +37,7 @@ ScalarConverter &ScalarConverter::operator=(const ScalarConverter &other) {
     this->_input = other._input;
     this->_char = other._char;
     this->_int = other._int;
+    this->_float = other._float;
     this->_float = other._float;
     this->_double = other._double;
   }
@@ -165,30 +168,42 @@ void ScalarConverter::print_keyword(void) const {
 
 void ScalarConverter::print_types(void) const {
   std::cout << BLUE;
+  long max_int = std::numeric_limits<int>::max();
+  long min_int = std::numeric_limits<int>::min();
   if (std::isprint(_char))
     std::cout << "[ScalarConverter] char: " << _char << std::endl;
   else
     std::cout << "[ScalarConverter] char: not printable" << std::endl;
-  if (_float < static_cast<float>(INT_MIN) - 1 ||
-      _float > static_cast<float>(INT_MAX) + 1 ||
-      _double < static_cast<double>(INT_MIN) - 1 ||
-      _double > static_cast<double>(INT_MAX) + 1)
+  if (_long > max_int || _long < min_int ||
+      _float < static_cast<float>(min_int) - 1 ||
+      _float > static_cast<float>(max_int) + 1 ||
+      _double < static_cast<double>(min_int) - 1 ||
+      _double >= static_cast<double>(max_int) + 1)
     std::cout << "[ScalarConverter] int: out of range " << std::endl;
   else
     std::cout << "[ScalarConverter] int: " << _int << std::endl;
-  std::cout << "[ScalarConverter] float: " << _float << std::endl;
-  std::cout << "[ScalarConverter] double: " << _double << std::endl;
+
+  if (_float - static_cast<float>(_long) == 0)
+    std::cout << "[ScalarConverter] float: " << _float << ".0f" << std::endl;
+  else
+    std::cout << "[ScalarConverter] float: " << _float << "f" << std::endl;
+  if (_double - static_cast<double>(_long) == 0)
+    std::cout << "[ScalarConverter] double: " << _double << ".0" << std::endl;
+  else
+    std::cout << "[ScalarConverter] double: " << _double << std::endl;
   std::cout << RESET;
 }
 
 void ScalarConverter::cast_char(void) {
   _char = static_cast<char>(_input[0]);
   _int = static_cast<int>(_char);
+  _long = static_cast<long>(_char);
   _float = static_cast<float>(_char);
   _double = static_cast<double>(_char);
 }
 
 void ScalarConverter::cast_int(void) {
+  _long = static_cast<int>(std::strtol(_input.c_str(), NULL, 10));
   _int = static_cast<int>(std::strtol(_input.c_str(), NULL, 10));
   _char = static_cast<char>(_int);
   _float = static_cast<float>(_int);
@@ -199,6 +214,7 @@ void ScalarConverter::cast_float(void) {
   _float = static_cast<float>(std::strtof(_input.c_str(), NULL));
   _char = static_cast<char>(_float);
   _int = static_cast<int>(_float);
+  _long = static_cast<long>(_float);
   _double = static_cast<double>(_float);
 }
 
@@ -206,11 +222,12 @@ void ScalarConverter::cast_double(void) {
   _double = static_cast<double>(std::strtold(_input.c_str(), NULL));
   _char = static_cast<char>(_double);
   _int = static_cast<int>(_double);
+  _long = static_cast<long>(_double);
   _float = static_cast<float>(_double);
 }
 
 void ScalarConverter::convert(void) {
-  std::cout << PURPLE << "[ScalarConverter] converting ... " << RESET
+  std::cout << GRAY << "[ScalarConverter] converting ... " << RESET
             << std::endl;
   try {
     if (this->is_keyword()) {

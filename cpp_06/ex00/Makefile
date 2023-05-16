@@ -6,13 +6,13 @@
 #    By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/04 09:59:27 by segarcia          #+#    #+#              #
-#    Updated: 2023/05/10 14:03:18 by segarcia         ###   ########.fr        #
+#    Updated: 2023/05/16 12:44:23 by segarcia         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		= scalar_converter
 	
-CC			= g++
+CC			= c++
 RM			= rm -rf
 FLAGS		= -Wall -Wextra -Werror -std=c++98
 

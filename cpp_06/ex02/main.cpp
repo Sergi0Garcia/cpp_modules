@@ -6,7 +6,7 @@
 /*   By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 12:18:02 by segarcia          #+#    #+#             */
-/*   Updated: 2023/05/11 12:34:54 by segarcia         ###   ########.fr       */
+/*   Updated: 2023/05/16 12:26:22 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,6 @@ int main(void) {
     identify(*tmp);
     delete tmp;
   }
+  // system("leaks real_type");
   return (0);
 }

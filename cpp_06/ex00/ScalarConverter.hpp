@@ -6,7 +6,7 @@
 /*   By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 14:58:26 by segarcia          #+#    #+#             */
-/*   Updated: 2023/05/10 14:16:14 by segarcia         ###   ########.fr       */
+/*   Updated: 2023/05/16 11:53:33 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ private:
   std::string _input;
   unsigned char _char;
   int _int;
+  long _long;
   float _float;
   double _double;
 
