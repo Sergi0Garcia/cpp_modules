@@ -6,14 +6,15 @@
 /*   By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 12:44:52 by segarcia          #+#    #+#             */
-/*   Updated: 2023/05/12 11:05:55 by segarcia         ###   ########.fr       */
+/*   Updated: 2023/05/16 14:49:47 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 #include <iostream>
 
-template <typename T> void swap(T a, T b) {
+// We need to pass a reference so we can modify the original value here
+template <typename T> void swap(T &a, T &b) {
   T tmp = a;
   a = b;
   b = tmp;

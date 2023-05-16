@@ -6,13 +6,13 @@
 #    By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/04 09:59:27 by segarcia          #+#    #+#              #
-#    Updated: 2023/05/12 10:06:31 by segarcia         ###   ########.fr        #
+#    Updated: 2023/05/16 14:39:55 by segarcia         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		= array
 	
-CC			= g++
+CC			= c++
 RM			= rm -rf
 FLAGS		= -Wall -Wextra -Werror -std=c++98
 

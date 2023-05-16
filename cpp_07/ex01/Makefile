@@ -6,13 +6,13 @@
 #    By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/04 09:59:27 by segarcia          #+#    #+#              #
-#    Updated: 2023/05/12 09:40:05 by segarcia         ###   ########.fr        #
+#    Updated: 2023/05/16 14:39:49 by segarcia         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		= iter
 	
-CC			= g++
+CC			= c++
 RM			= rm -rf
 FLAGS		= -Wall -Wextra -Werror -std=c++98
 
