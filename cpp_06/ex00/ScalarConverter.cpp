@@ -6,7 +6,7 @@
 /*   By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 11:11:34 by segarcia          #+#    #+#             */
-/*   Updated: 2023/05/16 12:39:34 by segarcia         ###   ########.fr       */
+/*   Updated: 2023/05/16 13:17:11 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -170,7 +170,7 @@ void ScalarConverter::print_types(void) const {
   std::cout << BLUE;
   long max_int = std::numeric_limits<int>::max();
   long min_int = std::numeric_limits<int>::min();
-  if (std::isprint(_char))
+  if (_int > 31 && _int < 127)
     std::cout << "[ScalarConverter] char: " << _char << std::endl;
   else
     std::cout << "[ScalarConverter] char: not printable" << std::endl;
