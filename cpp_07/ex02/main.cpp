@@ -6,7 +6,7 @@
 /*   By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 09:30:57 by segarcia          #+#    #+#             */
-/*   Updated: 2023/05/17 02:15:22 by segarcia         ###   ########.fr       */
+/*   Updated: 2023/05/17 10:20:08 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ int main(void) {
   // Construction with an unsigned int n as a parameter: Creates an array of n
   // elements initialized by default.
   Array<int> arr_int(5);
+  std::cout << "arr_int size: " << arr_int.size() << std::endl;
   Array<char> arr_char(5);
 
   for (unsigned int i = 0; i < arr_int.size(); i++) {
