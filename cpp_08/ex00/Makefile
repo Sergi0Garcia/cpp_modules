@@ -6,13 +6,13 @@
 #    By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/04 09:59:27 by segarcia          #+#    #+#              #
-#    Updated: 2023/05/11 12:59:25 by segarcia         ###   ########.fr        #
+#    Updated: 2023/05/19 11:28:14 by segarcia         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= whatever
+NAME		= easyfind
 	
-CC			= g++
+CC			= c++
 RM			= rm -rf
 FLAGS		= -Wall -Wextra -Werror -std=c++98
 
@@ -20,7 +20,7 @@ OBJDIR 		= .obj
 FILES		= main 
 SRC			= $(FILES:=.cpp)
 OBJ			= $(addprefix $(OBJDIR)/, $(FILES:=.o))
-HEADERS	= Whatever.hpp
+HEADERS	= easyfind.hpp
 
 RED			= 	\e[31m
 GREEN		=	\e[92;5;118m
