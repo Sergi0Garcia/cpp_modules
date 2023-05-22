@@ -6,21 +6,21 @@
 #    By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/04 09:59:27 by segarcia          #+#    #+#              #
-#    Updated: 2023/05/19 11:28:14 by segarcia         ###   ########.fr        #
+#    Updated: 2023/05/22 12:49:57 by segarcia         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= easyfind
+NAME		= span
 	
 CC			= c++
 RM			= rm -rf
 FLAGS		= -Wall -Wextra -Werror -std=c++98
 
 OBJDIR 		= .obj
-FILES		= main 
+FILES		= main Span
 SRC			= $(FILES:=.cpp)
 OBJ			= $(addprefix $(OBJDIR)/, $(FILES:=.o))
-HEADERS	= easyfind.hpp
+HEADERS	= Span.hpp
 
 RED			= 	\e[31m
 GREEN		=	\e[92;5;118m
