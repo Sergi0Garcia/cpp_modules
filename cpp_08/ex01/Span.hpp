@@ -6,13 +6,19 @@
 /*   By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 19:20:59 by segarcia          #+#    #+#             */
-/*   Updated: 2023/05/22 13:51:08 by segarcia         ###   ########.fr       */
+/*   Updated: 2023/05/23 11:54:56 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
+
 #include <algorithm>
+#include <cstdlib>
+#include <ctime>
 #include <iostream>
+#include <list>
+#include <random>
+#include <set>
 #include <vector>
 
 class Span {
@@ -27,9 +33,11 @@ public:
   ~Span();
 
   void addNumber(int num);
-  void addNumber(std::vector<int> range);
+  template <typename T> void addNumbers(const T &container);
+  std::vector<int> generateRandom(int size);
   int shortestSpan(void) const;
   int longestSpann(void) const;
+  void printArr(void) const;
 
   class MaxCapacity : public std::exception {
   public:

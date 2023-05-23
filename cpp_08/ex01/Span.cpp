@@ -6,14 +6,14 @@
 /*   By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 12:48:50 by segarcia          #+#    #+#             */
-/*   Updated: 2023/05/22 13:51:53 by segarcia         ###   ########.fr       */
+/*   Updated: 2023/05/23 11:54:27 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Span.hpp"
 #include "Colors.hpp"
-#include <climits>
-#include <limits>
+#include <sys/_types/_size_t.h>
+#include <vector>
 
 Span::Span(unsigned int n) : _n(n) {
   std::cout << GREEN;
@@ -41,10 +41,40 @@ Span &Span::operator=(const Span &other) {
   return (*this);
 }
 
+// prints array ordered
+void Span::printArr(void) const {
+  std::vector<int> copy = _arr;
+  std::sort(copy.begin(), copy.end());
+  for (size_t i = 0; i < copy.size(); i++) {
+    std::cout << copy[i] << std::endl;
+  }
+}
+
 void Span::addNumber(int num) {
   if (this->_arr.size() >= this->_n)
     throw Span::MaxCapacity();
   this->_arr.push_back(num);
+}
+
+template <typename T> void Span::addNumbers(const T &container) {
+  typedef typename T::value_type value_type;
+  typename T::const_iterator it;
+  for (it = container.begin(); it != container.end(); ++it) {
+    const value_type &value = *it;
+    _arr.push_back(value);
+  }
+  std::cout << std::endl;
+}
+template void Span::addNumbers(const std::vector<int> &container);
+template void Span::addNumbers(const std::list<int> &container);
+
+std::vector<int> Span::generateRandom(int size) {
+  std::vector<int> random;
+  std::srand(std::time(nullptr));
+  for (int i = 0; i < size; i++) {
+    random.push_back(std::rand() % 10000 + 1);
+  }
+  return (random);
 }
 
 int Span::shortestSpan(void) const {
@@ -68,13 +98,7 @@ int Span::longestSpann(void) const {
   if (_arr.empty() || _n <= 1)
     throw Span::NoNumbers();
   std::vector<int> copy = _arr;
-  int longest_distance = 0;
-  int tmp = 0;
   std::sort(copy.begin(), copy.end());
-  for (int i = 0; i < static_cast<int>(copy.size() - 1); i++) {
-    tmp = abs(copy.front() - copy.back());
-    if (tmp > longest_distance)
-      longest_distance = tmp;
-  }
+  int longest_distance = abs(copy.front() - copy.back());
   return (longest_distance);
 }
