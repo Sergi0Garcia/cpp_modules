@@ -6,29 +6,32 @@
 /*   By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 11:28:27 by segarcia          #+#    #+#             */
-/*   Updated: 2023/05/23 12:23:24 by segarcia         ###   ########.fr       */
+/*   Updated: 2023/05/23 12:35:18 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Colors.hpp"
-#include "Span.hpp"
-#include <vector>
+#include "MutantStack.hpp"
 
 int main(void) {
-  Span span(2);
-  span.addNumber(10);
-  span.addNumber(20);
-
-  std::vector<int> randomArr = span.generateRandom(2);
-  span.addNumbers(randomArr);
-
-  std::list<int> num_list;
-  num_list.push_back(424242);
-  num_list.push_back(474747);
-
-  span.addNumbers(num_list);
-  span.printArr();
-
-  std::cout << "shortest span: " << span.shortestSpan() << std::endl;
-  std::cout << "longest span: " << span.longestSpann() << std::endl;
+  MutantStack<int> mstack;
+  mstack.push(5);
+  mstack.push(17);
+  std::cout << mstack.top() << std::endl;
+  mstack.pop();
+  std::cout << mstack.size() << std::endl;
+  mstack.push(3);
+  mstack.push(5);
+  mstack.push(737);
+  //[...]
+  mstack.push(0);
+  MutantStack<int>::iterator it = mstack.begin();
+  MutantStack<int>::iterator ite = mstack.end();
+  ++it;
+  --it;
+  while (it != ite) {
+    std::cout << *it << std::endl;
+    ++it;
+  }
+  std::stack<int> s(mstack);
+  return 0;
 }

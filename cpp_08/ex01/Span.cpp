@@ -6,13 +6,12 @@
 /*   By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 12:48:50 by segarcia          #+#    #+#             */
-/*   Updated: 2023/05/23 11:54:27 by segarcia         ###   ########.fr       */
+/*   Updated: 2023/05/23 12:23:15 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Span.hpp"
 #include "Colors.hpp"
-#include <sys/_types/_size_t.h>
 #include <vector>
 
 Span::Span(unsigned int n) : _n(n) {
@@ -65,12 +64,13 @@ template <typename T> void Span::addNumbers(const T &container) {
   }
   std::cout << std::endl;
 }
+
 template void Span::addNumbers(const std::vector<int> &container);
 template void Span::addNumbers(const std::list<int> &container);
 
 std::vector<int> Span::generateRandom(int size) {
   std::vector<int> random;
-  std::srand(std::time(nullptr));
+  std::srand(std::time(NULL));
   for (int i = 0; i < size; i++) {
     random.push_back(std::rand() % 10000 + 1);
   }

@@ -6,7 +6,7 @@
 /*   By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 11:28:27 by segarcia          #+#    #+#             */
-/*   Updated: 2023/05/19 12:50:32 by segarcia         ###   ########.fr       */
+/*   Updated: 2023/05/23 12:28:46 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,12 @@ int main(void) {
   num_set.insert(70);
 
   std::cout << "num_set: " << *num_set.begin() << std::endl;
-  std::cout << "num_set: " << *std::next(num_set.begin()) << std::endl;
-  std::cout << "num_set: " << *num_set.begin() << std::endl;
+  std::set<int>::iterator it = num_set.begin();
+  it++;
+  // Next not available in c++98
+  // std::cout << "num_set: " << *std::next(num_set.begin()) << std::endl;
+  // std::cout << "num_set: " << *num_set.begin() << std::endl;
+  std::cout << "num_set: " << *it << std::endl;
 
   std::cout << "value 80 is in idx: " << easyfind(num_set, 80) << std::endl;
   return (1);

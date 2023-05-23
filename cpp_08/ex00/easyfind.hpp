@@ -6,11 +6,12 @@
 /*   By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 11:28:31 by segarcia          #+#    #+#             */
-/*   Updated: 2023/05/23 11:33:19 by segarcia         ###   ########.fr       */
+/*   Updated: 2023/05/23 12:26:15 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
+#include <algorithm>
 #include <iostream>
 #include <list>
 #include <set>
