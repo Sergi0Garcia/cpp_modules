@@ -6,7 +6,7 @@
 /*   By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 11:28:27 by segarcia          #+#    #+#             */
-/*   Updated: 2023/05/26 11:21:56 by segarcia         ###   ########.fr       */
+/*   Updated: 2023/05/26 13:32:01 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ int main(void) {
   num_list.push_back(100);
   num_list.push_back(200);
   num_list.push_back(300);
+  num_list.push_back(100);
   std::cout << "value 100 is in idx: " << easyfind(num_list, 100) << std::endl;
 
   std::set<int> num_set;
