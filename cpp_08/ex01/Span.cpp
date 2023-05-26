@@ -6,7 +6,7 @@
 /*   By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 12:48:50 by segarcia          #+#    #+#             */
-/*   Updated: 2023/05/23 12:23:15 by segarcia         ###   ########.fr       */
+/*   Updated: 2023/05/26 12:57:08 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ int Span::shortestSpan(void) const {
   return (shortest_distance);
 }
 
-int Span::longestSpann(void) const {
+int Span::longestSpan(void) const {
   if (_arr.empty() || _n <= 1)
     throw Span::NoNumbers();
   std::vector<int> copy = _arr;

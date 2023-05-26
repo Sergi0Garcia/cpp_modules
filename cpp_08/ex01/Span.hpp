@@ -6,7 +6,7 @@
 /*   By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 19:20:59 by segarcia          #+#    #+#             */
-/*   Updated: 2023/05/23 12:22:44 by segarcia         ###   ########.fr       */
+/*   Updated: 2023/05/26 12:58:50 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ public:
   template <typename T> void addNumbers(const T &container);
   std::vector<int> generateRandom(int size);
   int shortestSpan(void) const;
-  int longestSpann(void) const;
+  int longestSpan(void) const;
   void printArr(void) const;
 
   class MaxCapacity : public std::exception {
@@ -49,7 +49,7 @@ public:
   class NoNumbers : public std::exception {
   public:
     virtual const char *what() const throw() {
-      return "Error: no numbers stored in vector";
+      return "Error: no numbers stored in vector must be > 1";
     }
   };
 };
