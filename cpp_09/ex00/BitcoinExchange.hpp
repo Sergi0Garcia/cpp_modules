@@ -6,7 +6,7 @@
 /*   By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 21:06:43 by segarcia          #+#    #+#             */
-/*   Updated: 2023/07/06 11:22:47 by segarcia         ###   ########.fr       */
+/*   Updated: 2023/07/06 13:04:29 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,18 @@ private:
   std::map<std::string, double> _data;
 
 public:
+  // TODO add definitios
   BitcoinExchange();
   BitcoinExchange(const BitcoinExchange &other);
   BitcoinExchange &operator=(const BitcoinExchange &other);
   ~BitcoinExchange();
 
-  bool valid_args(const int argc);
-  bool valid_file(const char *file_path);
+  // TODO save file_path to private attribute
+  bool valid_arguments(const int argc);
+  bool valid_db(const char *file_path);
   bool parse_db(const char *file_path);
+  bool valid_input_file(const char *file_path);
   bool parse_input(const char *file_path);
   bool print_value(const std::string date);
+  bool execute(const char *file_path);
 };
