@@ -6,7 +6,7 @@
 #    By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/04 09:59:27 by segarcia          #+#    #+#              #
-#    Updated: 2023/06/05 20:59:57 by segarcia         ###   ########.fr        #
+#    Updated: 2023/07/06 09:42:07 by segarcia         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,10 +17,10 @@ RM			= rm -rf
 FLAGS		= -Wall -Wextra -Werror -std=c++98
 
 OBJDIR 		= .obj
-FILES		= main
+FILES		= main BitcoinExchange
 SRC			= $(FILES:=.cpp)
 OBJ			= $(addprefix $(OBJDIR)/, $(FILES:=.o))
-HEADERS	= 
+HEADERS	= BitcoinExchange.hpp
 
 RED			= 	\e[31m
 GREEN		=	\e[92;5;118m
