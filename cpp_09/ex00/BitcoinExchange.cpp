@@ -6,104 +6,24 @@
 /*   By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 09:36:41 by segarcia          #+#    #+#             */
-/*   Updated: 2023/07/06 13:36:22 by segarcia         ###   ########.fr       */
+/*   Updated: 2023/07/07 12:59:11 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
 #include <fstream>
-#include <iomanip>
-#include <iostream>
-#include <regex>
-#include <string>
 
 BitcoinExchange::BitcoinExchange() {}
 
 BitcoinExchange::~BitcoinExchange() {}
 
-bool BitcoinExchange::valid_arguments(const int argc) {
-  if (argc != 2) {
-    std::cout << RED << "error: usage: <path>" << RESET << std::endl;
-    return (false);
-  }
-  return (true);
-}
-
-std::string trimWhitespace(const std::string &word) {
-  size_t start = word.find_first_not_of(" \t\n\r");
-  size_t end = word.find_last_not_of(" \t\n\r");
-
-  if (start == std::string::npos) {
-    return "";
-  }
-
-  return word.substr(start, end - start + 1);
-}
-
+// --------------- utility functions ------------------
 bool is_empty_file(std::ifstream &pFile) {
   return pFile.peek() == std::ifstream::traits_type::eof();
 }
 
-bool BitcoinExchange::valid_db(const char *file_path) {
-  std::ifstream infile(file_path);
-  if (is_empty_file(infile)) {
-    std::cout << RED << "DB error: empty file" << RESET << std::endl;
-    return (false);
-  }
-  FILE *file = std::fopen(file_path, "r");
-  if (file == NULL) {
-    std::cout << RED << "DB error: cannot open file" << RESET << std::endl;
-    return (false);
-  }
-  std::fclose(file);
-  return (true);
-}
-
-bool BitcoinExchange::valid_input_file(const char *file_path) {
-  std::ifstream infile(file_path);
-  if (is_empty_file(infile)) {
-    std::cout << RED << "input error: empty file" << RESET << std::endl;
-    return (false);
-  }
-  FILE *file = std::fopen(file_path, "r");
-  if (file == NULL) {
-    std::cout << RED << "input error: cannot open file" << RESET << std::endl;
-    return (false);
-  }
-  std::fclose(file);
-  std::string temp;
-  std::getline(infile, temp);
-  if (temp != "date | value") {
-    std::cout << RED << "error wrong input headers" << RESET << std::endl;
-    return (false);
-  }
-  return (true);
-}
-
-bool BitcoinExchange::parse_input(const char *file_path) {
-  if (static_cast<std::string>(file_path).empty())
-    return (false);
-  FILE *file = std::fopen(file_path, "r");
-  if (file == NULL)
-    return (false);
-  std::fclose(file);
-  std::ifstream infile(file_path);
-  std::string temp;
-  int i = 0;
-  while (std::getline(infile, temp)) {
-    if (i == 0 && temp != "date | value") {
-      std::cout << "Error: wrong headers" << std::endl;
-      return (false);
-    };
-    if (i > 0) {
-    }
-  };
-  return (true);
-}
-
 int countRepetitions(const std::string &str, char target) {
   int count = 0;
-
   for (size_t i = 0; i < str.length(); i++) {
     if (str[i] == target)
       count++;
@@ -111,19 +31,60 @@ int countRepetitions(const std::string &str, char target) {
   return (count);
 }
 
-// Change this, regex is not valid in c++ 98 :(
-bool validateDate(const std::string &date) {
-  std::regex pattern("^\\d{4}-\\d{2}-\\d{2}$");
-  return std::regex_match(date, pattern);
+std::string trimWhitespace(const std::string &word) {
+  size_t start = word.find_first_not_of(" \t\n\r");
+  size_t end = word.find_last_not_of(" \t\n\r");
+  if (start == std::string::npos) {
+    return "";
+  }
+  return word.substr(start, end - start + 1);
 }
 
-bool validateValue(const std::string &number) {
-  std::regex pattern("^\\d+(\\.\\d+)?|\\.\\d+$");
-  return std::regex_match(number, pattern);
+bool validateDate(std::string str) {
+  if (str.length() < 10)
+    return (false);
+  if (!std::isdigit(str[0]) || !std::isdigit(str[1]) || !std::isdigit(str[2]) ||
+      !std::isdigit(str[3]) || !std::isdigit(str[5]) || !std::isdigit(str[6]) ||
+      !std::isdigit(str[8]) || !std::isdigit(str[9]) || str[4] != '-' ||
+      str[7] != '-')
+    return (false);
+  return (true);
 }
 
-bool BitcoinExchange::parse_db(const char *file_path) {
-  std::ifstream infile(file_path);
+bool validateValue(std::string str) {
+  if (str.find('-') != std::string::npos)
+    return (false);
+  for (size_t i = 0; i < str.length(); i++) {
+    if (!(isdigit(str[i]) || str[i] == '.'))
+      return (false);
+  }
+  return (true);
+}
+
+// --------------- utility functions ------------------
+
+bool BitcoinExchange::valid_database() {
+  std::ifstream infile(DB_CSV_PATH);
+  if (!infile) {
+    std::cout << RED << "DB error: no file found" << RESET << std::endl;
+    return (false);
+  }
+  if (is_empty_file(infile)) {
+    std::cout << RED << "DB error: empty file" << RESET << std::endl;
+    return (false);
+  }
+  FILE *file = std::fopen(DB_CSV_PATH, "r");
+  if (file == NULL) {
+    std::cout << RED << "DB error: cannot open file" << RESET << std::endl;
+    return (false);
+  }
+  std::fclose(file);
+  infile.close();
+  return (true);
+}
+
+bool BitcoinExchange::parse_database(void) {
+  std::ifstream infile(DB_CSV_PATH);
   std::string temp;
 
   int i = 0;
@@ -142,13 +103,11 @@ bool BitcoinExchange::parse_db(const char *file_path) {
         std::string date = temp.substr(0, pos);
         std::string value = temp.substr(pos + 1);
         if (!validateDate(date)) {
-          std::cout << RED << "Wrong date format: " << date << RESET
-                    << std::endl;
+          std::cout << RED << "Wrong format: " << date << RESET << std::endl;
           return (false);
         }
         if (!validateValue(value)) {
-          std::cout << RED << "Wrong value format: " << value << RESET
-                    << std::endl;
+          std::cout << RED << "Wrong format: " << value << RESET << std::endl;
           return (false);
         }
         double value_double = std::stod(value);
@@ -160,11 +119,41 @@ bool BitcoinExchange::parse_db(const char *file_path) {
     }
     i++;
   };
+  infile.close();
   return (true);
 }
 
-bool BitcoinExchange::print_value(const std::string date) {
-  std::cout << std::fixed << std::setprecision(2) << _data[date] << std::endl;
+bool BitcoinExchange::valid_arguments(const int argc) {
+  if (argc != 2) {
+    std::cout << RED << "error: usage: <path>" << RESET << std::endl;
+    return (false);
+  }
+  return (true);
+}
+
+bool BitcoinExchange::valid_input_file(const char *file_path) {
+  std::ifstream infile(file_path);
+  if (!infile) {
+    std::cout << RED << "input error: no file found" << RESET << std::endl;
+    return (false);
+  }
+  if (is_empty_file(infile)) {
+    std::cout << RED << "input error: empty file" << RESET << std::endl;
+    return (false);
+  }
+  FILE *file = std::fopen(file_path, "r");
+  if (file == NULL) {
+    std::cout << RED << "input error: cannot open file" << RESET << std::endl;
+    return (false);
+  }
+  std::fclose(file);
+  std::string temp;
+  std::getline(infile, temp);
+  if (temp != "date | value") {
+    std::cout << RED << "error wrong input headers" << RESET << std::endl;
+    return (false);
+  }
+  infile.close();
   return (true);
 }
 
@@ -204,5 +193,6 @@ bool BitcoinExchange::execute(const char *file_path) {
     }
     i++;
   };
+  infile.close();
   return (true);
 }
