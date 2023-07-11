@@ -6,21 +6,18 @@
 /*   By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 21:06:43 by segarcia          #+#    #+#             */
-/*   Updated: 2023/07/11 13:09:48 by segarcia         ###   ########.fr       */
+/*   Updated: 2023/07/11 13:26:00 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Colors.hpp"
 #include "Utils.hpp"
 #include <fstream>
-#include <iomanip>
 #include <iostream>
 #include <map>
-#include <sstream>
-#include <stdio.h>
-#include <string>
 
 #define DB_CSV_PATH "./data/data.csv"
+#pragma once
 
 class BitcoinExchange {
 private:
