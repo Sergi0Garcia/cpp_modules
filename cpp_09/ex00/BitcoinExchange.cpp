@@ -6,12 +6,15 @@
 /*   By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 09:36:41 by segarcia          #+#    #+#             */
-/*   Updated: 2023/07/07 12:59:11 by segarcia         ###   ########.fr       */
+/*   Updated: 2023/07/11 12:50:02 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
 #include <fstream>
+#include <iomanip>
+#include <sstream>
+#include <string>
 
 BitcoinExchange::BitcoinExchange() {}
 
@@ -59,6 +62,76 @@ bool validateValue(std::string str) {
       return (false);
   }
   return (true);
+}
+
+int getYear(std::string str) {
+  int year = -1;
+  std::size_t pos = str.find('-');
+  year = std::stoi(str.substr(0, pos));
+  return (year);
+}
+
+int getMonth(std::string str) {
+  int month = -1;
+  std::size_t pos1 = str.find('-');
+  std::size_t pos2 = str.find('-', pos1 + 1);
+  month = std::stoi(str.substr(pos1 + 1, pos2));
+  return (month);
+}
+
+std::string getPreviousDay(int year, int month, int day) {
+  std::string date;
+  if (day == 1) {
+    std::stringstream sm;
+    std::stringstream sd;
+    if (month == 1) {
+      std::string m = std::to_string(12);
+      std::string d = std::to_string(31);
+      sm << std::setfill('0') << std::setw(2) << m;
+      sd << std::setfill('0') << std::setw(2) << d;
+      date = std::to_string(year - 1) + '-' + sm.str() + '-' + sd.str();
+      return (date);
+    } else {
+      std::string m = std::to_string(month - 1);
+      std::string d = std::to_string(31);
+      sm << std::setfill('0') << std::setw(2) << m;
+      sd << std::setfill('0') << std::setw(2) << d;
+      date = std::to_string(year) + '-' + sm.str() + '-' + sd.str();
+      return (date);
+    }
+  } else {
+    std::string m = std::to_string(month);
+    std::string d = std::to_string(day - 1);
+    std::stringstream sm;
+    std::stringstream sd;
+    sm << std::setfill('0') << std::setw(2) << m;
+    sd << std::setfill('0') << std::setw(2) << d;
+    date = std::to_string(year) + '-' + sm.str() + '-' + sd.str();
+    return (date);
+  }
+  return (date);
+}
+
+int getDay(std::string str) {
+  int day = -1;
+  std::size_t pos1 = str.find('-');
+  std::size_t pos2 = str.find('-', pos1 + 1);
+  day = std::stoi(str.substr(pos2 + 1, str.length()));
+  return (day);
+}
+
+double BitcoinExchange::getDBValue(std::string date) {
+  std::map<std::string, double> data = _data;
+  std::string c_date = date;
+  if (data.find(c_date) != data.end() && data[c_date] >= 0) {
+    return (data[c_date]);
+  }
+  while (!data[c_date] && getYear(c_date) > 2008) {
+    c_date = getPreviousDay(getYear(c_date), getMonth(c_date), getDay(c_date));
+    if (data.find(c_date) != data.end() && data[c_date] >= 0)
+      return (data[c_date]);
+  }
+  return (-1);
 }
 
 // --------------- utility functions ------------------
@@ -164,8 +237,10 @@ bool BitcoinExchange::execute(const char *file_path) {
 
   int i = 0;
   while (std::getline(infile, temp)) {
-    if (countRepetitions(temp, '|') != 1)
+    if (countRepetitions(temp, '|') != 1) {
       std::cout << RED << "Error: bad input => " << temp << RESET << std::endl;
+      continue;
+    }
     std::size_t pos = temp.find('|');
     if (pos != std::string::npos) {
       std::string date = temp.substr(0, pos);
@@ -175,17 +250,24 @@ bool BitcoinExchange::execute(const char *file_path) {
       if (!validateDate(date)) {
         std::cout << RED << "Error: wrong date format: " << date << RESET
                   << std::endl;
+        continue;
       }
       if (!validateValue(value)) {
-        std::cout << RED << "Error: not a positive number " << value << RESET
+        std::cout << RED << "Error: not a positive number " << RESET
                   << std::endl;
+        continue;
       }
-      if (!_data[date]) {
-        std::cout << "Missing logic for finding smaller date" << std::endl;
-      } else {
-        double value_double = std::stod(value);
+      double valDB = this->getDBValue(date);
+      double value_double = std::stod(value);
+      if (value_double > 1000) {
+        std::cout << RED << "Error: too large number " << RESET << std::endl;
+        continue;
+      }
+      if (valDB >= 0) {
         std::cout << date << " => " << value << " = " << std::fixed
-                  << std::setprecision(2) << _data[date] * value_double
+                  << std::setprecision(2) << valDB * value_double << std::endl;
+      } else {
+        std::cout << RED << "Error reading DB value " << value << RESET
                   << std::endl;
       }
     } else {
@@ -195,4 +277,9 @@ bool BitcoinExchange::execute(const char *file_path) {
   };
   infile.close();
   return (true);
+}
+
+bool BitcoinExchange::print_value(const std::string date) {
+  std::cout << "DB value: " << this->getDBValue(date) << std::endl;
+  return (false);
 }

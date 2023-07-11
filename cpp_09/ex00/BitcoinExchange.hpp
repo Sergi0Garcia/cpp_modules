@@ -6,7 +6,7 @@
 /*   By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 21:06:43 by segarcia          #+#    #+#             */
-/*   Updated: 2023/07/07 13:16:44 by segarcia         ###   ########.fr       */
+/*   Updated: 2023/07/11 12:10:45 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 class BitcoinExchange {
 private:
   std::map<std::string, double> _data;
+  double getDBValue(std::string date);
 
 public:
   BitcoinExchange();
