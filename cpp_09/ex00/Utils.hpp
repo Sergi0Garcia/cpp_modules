@@ -1,26 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Utils.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/05 20:58:44 by segarcia          #+#    #+#             */
-/*   Updated: 2023/07/11 13:10:23 by segarcia         ###   ########.fr       */
+/*   Created: 2023/07/11 12:58:24 by segarcia          #+#    #+#             */
+/*   Updated: 2023/07/11 13:07:44 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "BitcoinExchange.hpp"
+#pragma once
+#include <sstream>
 
-// TODO missing to fix stoi in c++98
-
-int main(int argc, char **argv) {
-  BitcoinExchange btc_exchange;
-  if (!btc_exchange.valid_database() || !btc_exchange.parse_database() ||
-      !btc_exchange.valid_arguments(argc) ||
-      !btc_exchange.valid_input_file(argv[1]))
-    return (1);
-  btc_exchange.execute(argv[1]);
-  // system("leaks btc");
-  return (0);
+template <typename T> std::string to_string(const T &value) {
+  std::stringstream ss;
+  ss << value;
+  return ss.str();
 }
