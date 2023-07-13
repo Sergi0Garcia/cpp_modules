@@ -6,7 +6,7 @@
 /*   By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 09:36:41 by segarcia          #+#    #+#             */
-/*   Updated: 2023/07/11 13:09:21 by segarcia         ###   ########.fr       */
+/*   Updated: 2023/07/13 12:08:52 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ int custom_stoi(const std::string &str) {
 
   return negative ? -result : result;
 }
+
 std::string trimWhitespace(const std::string &word) {
   size_t start = word.find_first_not_of(" \t\n\r");
   size_t end = word.find_last_not_of(" \t\n\r");
