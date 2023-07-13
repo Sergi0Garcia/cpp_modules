@@ -6,12 +6,12 @@
 /*   By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 20:58:44 by segarcia          #+#    #+#             */
-/*   Updated: 2023/07/13 13:50:02 by segarcia         ###   ########.fr       */
+/*   Updated: 2023/07/13 14:30:05 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RPN.hpp"
-#include "utils.cpp"
+#include "Utils.hpp"
 #include <iostream>
 
 int main(int argc, char **argv) {
@@ -23,5 +23,6 @@ int main(int argc, char **argv) {
   RPN rpn(input);
   if (!rpn.run())
     return (1);
+  // system("leaks RPN");
   return (0);
 }

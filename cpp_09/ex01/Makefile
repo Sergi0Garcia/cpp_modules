@@ -6,7 +6,7 @@
 #    By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/04 09:59:27 by segarcia          #+#    #+#              #
-#    Updated: 2023/07/13 13:50:10 by segarcia         ###   ########.fr        #
+#    Updated: 2023/07/13 14:29:24 by segarcia         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,11 +17,11 @@ RM			= rm -rf
 FLAGS		= -Wall -Wextra -Werror -std=c++98
 
 OBJDIR 		= .obj
-FILES		= main RPN
+FILES		= main utils RPN
 SRC			= $(FILES:=.cpp)
 OBJ			= $(addprefix $(OBJDIR)/, $(FILES:=.o))
-HEADERS	= RPN.hpp
-
+HEADERS	= RPN.hpp Utils.hpp
+ 
 RED			= 	\e[31m
 GREEN		=	\e[92;5;118m
 RESET		=	\e[0m

@@ -6,13 +6,11 @@
 /*   By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 12:52:23 by segarcia          #+#    #+#             */
-/*   Updated: 2023/07/13 13:58:12 by segarcia         ###   ########.fr       */
+/*   Updated: 2023/07/13 14:28:50 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Colors.hpp"
-#include "Errors.hpp"
-#include <iostream>
+#include "Utils.hpp"
 
 bool print_error(ERROR err) {
   std::cout << RED << "Error: ";
