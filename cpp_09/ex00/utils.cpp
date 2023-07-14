@@ -6,7 +6,7 @@
 /*   By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 14:15:24 by segarcia          #+#    #+#             */
-/*   Updated: 2023/07/13 15:40:25 by segarcia         ###   ########.fr       */
+/*   Updated: 2023/07/14 09:58:20 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,9 @@ bool print_error(ERROR err) {
   case OP_DB_VALUE:
     std::cout << "operation error: DB value is negative";
     break;
+  case UNKNOWN_ERROR:
+    std::cout << "operation error: DB value is negative";
+    break;
   default:
     std::cout << "unknown error";
     break;
@@ -105,12 +108,11 @@ int custom_stoi(const std::string &str) {
     negative = true;
     ++i;
   }
-
   for (; i < str.length(); ++i) {
     if (isdigit(str[i])) {
       result = result * 10 + (str[i] - '0');
     } else {
-      // std::cout << "Invalid input: " << str << std::endl;
+      print_error(UNKNOWN_ERROR);
       return (-1);
     }
   }
@@ -123,8 +125,7 @@ double customStod(const std::string &str) {
   double number;
 
   if (!(iss >> number)) {
-    // Handle parsing failure
-    // std::cerr << "Failed to parse number." << std::endl;
+    print_error(UNKNOWN_ERROR);
     exit(1);
   }
 

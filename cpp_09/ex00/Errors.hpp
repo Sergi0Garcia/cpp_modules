@@ -6,7 +6,7 @@
 /*   By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 12:59:05 by segarcia          #+#    #+#             */
-/*   Updated: 2023/07/13 15:19:30 by segarcia         ###   ########.fr       */
+/*   Updated: 2023/07/14 09:57:11 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,6 @@ enum ERROR {
   INPUT_VALUE_TOO_BIG,
   INPUT_NEGATIVE_NUMBER,
   INPUT_DATE_FORMAT,
-  OP_DB_VALUE
+  OP_DB_VALUE,
+  UNKNOWN_ERROR
 };
