@@ -6,7 +6,7 @@
 /*   By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 14:15:24 by segarcia          #+#    #+#             */
-/*   Updated: 2023/07/14 09:58:20 by segarcia         ###   ########.fr       */
+/*   Updated: 2023/07/14 10:37:41 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -178,6 +178,15 @@ int getMonth(std::string str) {
   return (month);
 }
 
+int getDay(std::string str) {
+  int day = -1;
+  std::size_t pos1 = str.find('-');
+  std::size_t pos2 = str.find('-', pos1 + 1);
+  std::string sub = str.substr(pos2 + 1);
+  day = custom_stoi(sub);
+  return (day);
+}
+
 std::string getPreviousDay(int year, int month, int day) {
   std::string date;
   if (day == 1) {
@@ -209,13 +218,4 @@ std::string getPreviousDay(int year, int month, int day) {
     return (date);
   }
   return (date);
-}
-
-int getDay(std::string str) {
-  int day = -1;
-  std::size_t pos1 = str.find('-');
-  std::size_t pos2 = str.find('-', pos1 + 1);
-  std::string sub = str.substr(pos2 + 1);
-  day = custom_stoi(sub);
-  return (day);
 }
