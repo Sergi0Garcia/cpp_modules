@@ -6,7 +6,7 @@
 /*   By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/16 15:54:55 by segarcia          #+#    #+#             */
-/*   Updated: 2023/07/16 16:24:55 by segarcia         ###   ########.fr       */
+/*   Updated: 2023/07/16 18:12:08 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ class PmergeMe {
 private:
   char **_input;
   int _argc;
+  bool _has_straggler;
+  int _straggler;
   std::vector<int> _vector;
 
 public:
@@ -26,4 +28,5 @@ public:
   ~PmergeMe();
 
   bool parse_input(void);
+  bool merge_insertion_sort(void);
 };

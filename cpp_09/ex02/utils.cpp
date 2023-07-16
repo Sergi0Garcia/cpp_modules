@@ -6,7 +6,7 @@
 /*   By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 12:52:23 by segarcia          #+#    #+#             */
-/*   Updated: 2023/07/16 15:57:32 by segarcia         ###   ########.fr       */
+/*   Updated: 2023/07/16 17:50:29 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,10 @@ bool print_error(ERROR err) {
     std::cout << "usage: must have at least 2 numbers";
     break;
   case MUST_BE_NUMBER:
-    std::cout << "usage: not valid number: must be positive int";
+    std::cout << "not valid number: must be positive int";
+    break;
+  case NUM_OUT_OF_RANGE:
+    std::cout << "not valid number: INT MAX";
     break;
   default:
     std::cout << "unknown error";

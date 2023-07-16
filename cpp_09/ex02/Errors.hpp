@@ -6,9 +6,9 @@
 /*   By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/16 15:24:06 by segarcia          #+#    #+#             */
-/*   Updated: 2023/07/16 15:38:29 by segarcia         ###   ########.fr       */
+/*   Updated: 2023/07/16 17:49:29 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
-enum ERROR { INVALID_ARGC, MUST_BE_NUMBER };
+enum ERROR { INVALID_ARGC, MUST_BE_NUMBER, NUM_OUT_OF_RANGE };
