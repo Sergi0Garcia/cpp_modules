@@ -6,10 +6,12 @@
 /*   By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 20:58:44 by segarcia          #+#    #+#             */
-/*   Updated: 2023/07/14 14:54:43 by segarcia         ###   ########.fr       */
+/*   Updated: 2023/07/16 16:25:56 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "PmergeMe.hpp"
+#include "Utils.hpp"
 #include <ctime>
 #include <iomanip>
 #include <iostream>
@@ -26,10 +28,15 @@ void print_time(clock_t start, clock_t end) {
 }
 
 int main(int argc, char **argv) {
-  (void)argc;
-  (void)argv;
+  if (!valid_argc(argc))
+    return (1);
+  if (!valid_argv(argv, argc))
+    return (1);
+  PmergeMe merger(argv, argc);
   clock_t start = std::clock();
+  merger.parse_input();
   clock_t end = std::clock();
   print_time(start, end);
+  // system("leaks PmergeMe");
   return (0);
 }
