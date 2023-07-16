@@ -6,7 +6,7 @@
 /*   By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 20:58:44 by segarcia          #+#    #+#             */
-/*   Updated: 2023/07/14 09:58:25 by segarcia         ###   ########.fr       */
+/*   Updated: 2023/07/16 16:16:54 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ int main(int argc, char **argv) {
   if (!btc_exchange.valid_database() || !btc_exchange.parse_database() ||
       !btc_exchange.valid_arguments(argc) ||
       !btc_exchange.valid_input_file(argv[1]))
-
     return (1);
   btc_exchange.execute(argv[1]);
   // system("leaks btc");
