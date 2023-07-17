@@ -6,7 +6,7 @@
 /*   By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 12:52:23 by segarcia          #+#    #+#             */
-/*   Updated: 2023/07/16 17:50:29 by segarcia         ###   ########.fr       */
+/*   Updated: 2023/07/17 12:55:03 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,17 @@ bool print_error(ERROR err) {
   std::cout << RESET << std::endl;
   // Always returning false
   return (false);
+}
+
+void print_time_diff(clock_t start, clock_t end) {
+  clock_t res;
+  std::string micro = "\xC2\xB5";
+
+  res = static_cast<double>(end - start) / CLOCKS_PER_SEC * 10000000;
+  if (res > 10000)
+    std::cout << res / 1000 << "ms" << std::endl;
+  else
+    std::cout << res << micro << "s" << std::endl;
 }
 
 bool valid_argc(int argc) {
