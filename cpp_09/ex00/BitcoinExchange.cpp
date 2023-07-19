@@ -6,7 +6,7 @@
 /*   By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 09:36:41 by segarcia          #+#    #+#             */
-/*   Updated: 2023/07/19 11:48:30 by segarcia         ###   ########.fr       */
+/*   Updated: 2023/07/19 13:08:22 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ double BitcoinExchange::getDBValue(std::string date) {
   if (data.find(c_date) != data.end() && data[c_date] >= 0) {
     return (data[c_date]);
   }
-
   while (!data[c_date] && getYear(c_date) > 2008) {
     if (getYear(c_date) > 2023)
       c_date =

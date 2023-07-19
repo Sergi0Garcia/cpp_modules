@@ -6,7 +6,7 @@
 /*   By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 14:15:24 by segarcia          #+#    #+#             */
-/*   Updated: 2023/07/19 11:46:57 by segarcia         ###   ########.fr       */
+/*   Updated: 2023/07/19 13:15:40 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ bool print_error(ERROR err) {
     std::cout << "DB error: should contain 1 comma separator";
     break;
   case DB_DATE_FORMAT:
-    std::cout << "DB error: date format YYYY-MM-DD";
+    std::cout << "DB error: must be valid date format YYYY-MM-DD";
     break;
   case DB_PRICE_VALUE:
     std::cout << "DB error: price value should be positive number";
@@ -69,7 +69,7 @@ bool print_error(ERROR err) {
     std::cout << "input error: not a positive number";
     break;
   case INPUT_DATE_FORMAT:
-    std::cout << "input error: date format YYYY-MM-DD";
+    std::cout << "input error: must be valid date format YYYY-MM-DD";
     break;
   case OP_DB_VALUE:
     std::cout << "operation error: DB value is negative";
@@ -140,6 +140,16 @@ std::string trimWhitespace(const std::string &word) {
   return word.substr(start, end - start + 1);
 }
 
+bool isLeapYear(int year) {
+  if (year % 400 == 0)
+    return true;
+  else if (year % 100 == 0)
+    return false;
+  else if (year % 4 == 0)
+    return true;
+  return false;
+}
+
 bool validateDate(std::string str) {
   if (str.length() < 10)
     return (false);
@@ -147,6 +157,22 @@ bool validateDate(std::string str) {
       !std::isdigit(str[3]) || !std::isdigit(str[5]) || !std::isdigit(str[6]) ||
       !std::isdigit(str[8]) || !std::isdigit(str[9]) || str[4] != '-' ||
       str[7] != '-')
+    return (false);
+  if ((str[8] == '0' && str[9] == '0') || (str[5] == '0' && str[6] == '0') ||
+      (str[0] == '0' && str[1] == '0' && str[2] == '0' && str[3] == '0'))
+    return (false);
+  int year = getYear(str);
+  int month = getMonth(str);
+  int day = getDay(str);
+  if (day > 31)
+    return (false);
+  if (month == 0 || month > 12)
+    return (false);
+  if ((month == 4 || month == 6 || month == 9 || month == 11) && (day >= 31))
+    return (false);
+  if (month == 2 && isLeapYear(year) && day > 29)
+    return (false);
+  if (month == 2 && !isLeapYear(year) && day > 28)
     return (false);
   return (true);
 }
