@@ -6,7 +6,7 @@
 /*   By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/16 15:55:52 by segarcia          #+#    #+#             */
-/*   Updated: 2023/07/19 10:15:46 by segarcia         ###   ########.fr       */
+/*   Updated: 2023/07/19 12:35:27 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -195,6 +195,10 @@ int binarySearchDeque(const std::deque<int> &vec, int key, int start, int end) {
 }
 
 bool PmergeMe::sort_vector(void) {
+  if (_vector.size() == 1) {
+    _sorted_vector = _vector;
+    return (true);
+  }
   // define straggler
   if ((_vector.size() % 2) == 1) {
     _has_straggler = true;
@@ -244,6 +248,10 @@ bool PmergeMe::sort_vector(void) {
 }
 
 bool PmergeMe::sort_deque(void) {
+  if (_deque.size() == 1) {
+    _sorted_deque = _deque;
+    return (true);
+  }
   // define straggler
   if ((_deque.size() % 2) == 1) {
     _has_straggler = true;

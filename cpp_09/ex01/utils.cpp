@@ -6,7 +6,7 @@
 /*   By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 12:52:23 by segarcia          #+#    #+#             */
-/*   Updated: 2023/07/19 09:00:12 by segarcia         ###   ########.fr       */
+/*   Updated: 2023/07/19 12:24:14 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,16 @@ bool print_error(ERROR err) {
     std::cout << "invalid input: invalid char";
     break;
   case STACK_SIZE:
-    std::cout << "invalid input: must start with 2 numbers";
+    std::cout << "invalid input: must match operation with numbers";
     break;
   case MISSING_OPERATOR:
     std::cout << "invalid input: required operator (+ - / *)";
     break;
   case MISSING_OPERATOR_MANY_NUMBERS:
-    std::cout << "invalid input: missing operator or more than 2 "
-                 "consecutive numbers";
+    std::cout << "invalid input: check format of numbers and operations";
+    break;
+  case NUMBER_LESS_THAN_10:
+    std::cout << "invalid input: number must be less than 10 with 1 char";
     break;
   case INT_OUT_OF_RANGE:
     std::cout << "result: out of range";
@@ -56,10 +58,12 @@ bool valid_input(std::string str) {
   if (str.empty())
     return (print_error(EMPTY_STRING));
   for (size_t i = 0; i < str.length(); i++) {
-    if (std::isdigit(str[i]) || str[i] == '-' || str[i] == '+' ||
-        str[i] == '*' || str[i] == '/' || str[i] == ' ')
-      i++;
-    else
+    if (std::isdigit(str[i]) && std::isdigit(str[i + 1]))
+      return (print_error(NUMBER_LESS_THAN_10));
+    if (str[i] == '.' || str[i] == ',')
+      return (print_error(INVALID_CHAR));
+    if (!(std::isdigit(str[i]) || str[i] == '-' || str[i] == '+' ||
+          str[i] == '*' || str[i] == '/' || str[i] == ' '))
       return (print_error(INVALID_CHAR));
   }
   return (true);

@@ -6,7 +6,7 @@
 /*   By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 14:15:24 by segarcia          #+#    #+#             */
-/*   Updated: 2023/07/19 08:39:08 by segarcia         ###   ########.fr       */
+/*   Updated: 2023/07/19 11:46:57 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ bool print_error(ERROR err) {
   case ERROR_ARGC:
     std::cout << "usage: <path>";
     break;
-  case DB_FILE: 
+  case DB_FILE:
     std::cout << "DB error: no file found";
     break;
   case DB_EMPTY_FILE:
@@ -120,7 +120,7 @@ int custom_stoi(const std::string &str) {
   return negative ? -result : result;
 }
 
-double customStod(const std::string &str){
+double customStod(const std::string &str) {
   std::istringstream iss(str);
   double number;
 
@@ -152,10 +152,11 @@ bool validateDate(std::string str) {
 }
 
 bool validateValue(std::string str) {
-  if (str.find('-') != std::string::npos)
+  std::string trimmed_str = trimWhitespace(str);
+  if (trimmed_str.find('-') != std::string::npos)
     return (false);
-  for (size_t i = 0; i < str.length(); i++) {
-    if (!(isdigit(str[i]) || str[i] == '.'))
+  for (size_t i = 0; i < trimmed_str.length(); i++) {
+    if (!(isdigit(trimmed_str[i]) || str[i] == '.'))
       return (false);
   }
   return (true);

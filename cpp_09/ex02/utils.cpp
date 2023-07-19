@@ -6,7 +6,7 @@
 /*   By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 12:52:23 by segarcia          #+#    #+#             */
-/*   Updated: 2023/07/19 09:42:06 by segarcia         ###   ########.fr       */
+/*   Updated: 2023/07/19 12:28:57 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ bool print_error(ERROR err) {
   std::cout << RED << "Error: ";
   switch (err) {
   case INVALID_ARGC:
-    std::cout << "usage: must have at least 2 numbers";
+    std::cout << "usage: must have at least 2 args";
     break;
   case MUST_BE_NUMBER:
     std::cout << "not valid number: must be positive int";
