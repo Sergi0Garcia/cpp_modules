@@ -6,7 +6,7 @@
 /*   By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/16 15:55:52 by segarcia          #+#    #+#             */
-/*   Updated: 2023/07/19 09:57:53 by segarcia         ###   ########.fr       */
+/*   Updated: 2023/07/19 10:15:46 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -234,7 +234,7 @@ bool PmergeMe::sort_vector(void) {
     int position = binarySearch(main_chain, value, 0, main_chain.size() - 1);
     main_chain.insert(main_chain.begin() + position, value);
   }
-  if (_has_straggler) {
+  if (_has_straggler && _straggler >= 0) {
     int position =
         binarySearch(main_chain, _straggler, 0, main_chain.size() - 1);
     main_chain.insert(main_chain.begin() + position, _straggler);
@@ -283,7 +283,7 @@ bool PmergeMe::sort_deque(void) {
         binarySearchDeque(main_chain, value, 0, main_chain.size() - 1);
     main_chain.insert(main_chain.begin() + position, value);
   }
-  if (_has_straggler) {
+  if (_has_straggler && _straggler >= 0) {
     int position =
         binarySearchDeque(main_chain, _straggler, 0, main_chain.size() - 1);
     main_chain.insert(main_chain.begin() + position, _straggler);
