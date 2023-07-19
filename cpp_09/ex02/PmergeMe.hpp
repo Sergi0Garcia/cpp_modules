@@ -6,7 +6,7 @@
 /*   By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/16 15:54:55 by segarcia          #+#    #+#             */
-/*   Updated: 2023/07/17 12:54:45 by segarcia         ###   ########.fr       */
+/*   Updated: 2023/07/19 09:20:58 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ private:
   std::vector<int> _vjacob;
   std::deque<int> _deque;
   std::deque<int> _djacob;
-	std::vector<int> _sorted_vector;
-	std::deque<int> _sorted_deque;
+  std::vector<int> _sorted_vector;
+  std::deque<int> _sorted_deque;
 
 public:
   PmergeMe(char **input, int argc);
@@ -37,5 +37,5 @@ public:
   bool parse_input(void);
   bool sort_vector(void);
   bool sort_deque(void);
-	bool sort_both(void);
+  bool sort_both(void);
 };

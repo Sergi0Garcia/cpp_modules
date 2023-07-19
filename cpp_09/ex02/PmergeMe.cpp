@@ -6,7 +6,7 @@
 /*   By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/16 15:55:52 by segarcia          #+#    #+#             */
-/*   Updated: 2023/07/17 12:50:09 by segarcia         ###   ########.fr       */
+/*   Updated: 2023/07/19 09:57:53 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,28 +27,24 @@ PmergeMe::PmergeMe(char **input, int argc)
 
 PmergeMe::~PmergeMe() {}
 
+PmergeMe::PmergeMe(const PmergeMe &other) { *this = other; }
+
+PmergeMe &PmergeMe::operator=(const PmergeMe &other) {
+  if (this == &other)
+    return (*this);
+  this->_input = other._input;
+  this->_argc = other._argc;
+  this->_has_straggler = other._has_straggler;
+  this->_straggler = other._straggler;
+  return (*this);
+}
+
 void printVector(const std::vector<int> &vec) {
   for (std::vector<int>::const_iterator it = vec.begin(); it != vec.end();
        ++it) {
     std::cout << *it << " ";
   }
   std::cout << std::endl;
-}
-
-void printVectorD(const std::deque<int> &vec, std::string str) {
-  std::cout << str << std::endl;
-  for (std::deque<int>::const_iterator it = vec.begin(); it != vec.end();
-       ++it) {
-    std::cout << *it << " ";
-  }
-  std::cout << std::endl;
-}
-
-void printPoints(std::vector<std::pair<int, int> > arr, std::string str) {
-	std::cout << str << std::endl;
-	for(size_t i = 0; i < arr.size(); i++) {
-		std::cout << "P[" << i << "] = " << arr[i].first << ", " << arr[i].second << std::endl;
-	}
 }
 
 bool isValueInVector(const std::vector<int> &vec, int value) {
@@ -92,7 +88,6 @@ std::vector<int> build_sequence_vector(int b_len) {
     jacob_sequence.push_back(jacobsthal(jacob_index));
     jacob_index += 1;
   }
-
   for (size_t i = 0; i < jacob_sequence.size(); i++) {
     if (i == 0)
       full_sequence.push_back(jacob_sequence[i]);
@@ -141,63 +136,63 @@ bool PmergeMe::init(void) {
   return (true);
 }
 
-
-int binarySearchPairs(std::vector<std::pair<int, int> > arr, int key, int start, int end) {
+int binarySearchPairs(std::vector<std::pair<int, int> > arr, int key, int start,
+                      int end) {
   while (start <= end) {
     int mid = start + (end - start) / 2;
     if (arr[mid].first == key) {
-      return mid; // Key already exists at index 'mid'
+      return mid;
     } else if (arr[mid].first < key) {
-      start = mid + 1; // Search in the right half
+      start = mid + 1;
     } else {
-      end = mid - 1; // Search in the left half
+      end = mid - 1;
     }
   }
-  return start; // Return the insertion point
+  return start;
 }
 
-int binarySearchPairsDeque(std::deque<std::pair<int, int> > arr, int key, int start, int end) {
+int binarySearchPairsDeque(std::deque<std::pair<int, int> > arr, int key,
+                           int start, int end) {
   while (start <= end) {
     int mid = start + (end - start) / 2;
     if (arr[mid].first == key) {
-      return mid; // Key already exists at index 'mid'
+      return mid;
     } else if (arr[mid].first < key) {
-      start = mid + 1; // Search in the right half
+      start = mid + 1;
     } else {
-      end = mid - 1; // Search in the left half
+      end = mid - 1;
     }
   }
-  return start; // Return the insertion point
+  return start;
 }
 
 int binarySearch(const std::vector<int> &vec, int key, int start, int end) {
   while (start <= end) {
     int mid = start + (end - start) / 2;
     if (vec[mid] == key) {
-      return mid; // Key already exists at index 'mid'
+      return mid;
     } else if (vec[mid] < key) {
-      start = mid + 1; // Search in the right half
+      start = mid + 1;
     } else {
-      end = mid - 1; // Search in the left half
+      end = mid - 1;
     }
   }
-  return start; // Return the insertion point
+  return start;
 }
 
-int binarySearchD(const std::deque<int> &vec, int key, int start, int end) {
+int binarySearchDeque(const std::deque<int> &vec, int key, int start, int end) {
   while (start <= end) {
     int mid = start + (end - start) / 2;
     if (vec[mid] == key) {
-      return mid; // Key already exists at index 'mid'
+      return mid;
     } else if (vec[mid] < key) {
-      start = mid + 1; // Search in the right half
+      start = mid + 1;
     } else {
-      end = mid - 1; // Search in the left half
+      end = mid - 1;
     }
   }
-  return start; // Return the insertion point
+  return start;
 }
-
 
 bool PmergeMe::sort_vector(void) {
   // define straggler
@@ -218,14 +213,15 @@ bool PmergeMe::sort_vector(void) {
   }
 
   // sort pairs depending on a
-	std::vector<std::pair<int, int> > sorted_arr;
+  std::vector<std::pair<int, int> > sorted_arr;
   for (size_t i = 0; i < _vector.size() / 2; i++) {
-		if (i == 0)
-			sorted_arr.push_back(arr[i]);
-		else {
-			 int position = binarySearchPairs(sorted_arr, arr[i].first, 0, sorted_arr.size() - 1);
-			 sorted_arr.insert(sorted_arr.begin() + position,arr[i]);
-		}
+    if (i == 0)
+      sorted_arr.push_back(arr[i]);
+    else {
+      int position =
+          binarySearchPairs(sorted_arr, arr[i].first, 0, sorted_arr.size() - 1);
+      sorted_arr.insert(sorted_arr.begin() + position, arr[i]);
+    }
   }
   // create main chain
   std::vector<int> main_chain;
@@ -238,11 +234,12 @@ bool PmergeMe::sort_vector(void) {
     int position = binarySearch(main_chain, value, 0, main_chain.size() - 1);
     main_chain.insert(main_chain.begin() + position, value);
   }
-	if (_has_straggler) {
-		int position = binarySearch(main_chain, _straggler, 0, main_chain.size() - 1);
+  if (_has_straggler) {
+    int position =
+        binarySearch(main_chain, _straggler, 0, main_chain.size() - 1);
     main_chain.insert(main_chain.begin() + position, _straggler);
-	}
-	_sorted_vector = main_chain;
+  }
+  _sorted_vector = main_chain;
   return (true);
 }
 
@@ -263,16 +260,16 @@ bool PmergeMe::sort_deque(void) {
     if (arr[i].second > arr[i].first)
       std::swap(arr[i].first, arr[i].second);
   }
-
   // sort pairs depending on a
-	std::deque<std::pair<int, int> > sorted_arr;
+  std::deque<std::pair<int, int> > sorted_arr;
   for (size_t i = 0; i < _deque.size() / 2; i++) {
-		if (i == 0)
-			sorted_arr.push_back(arr[i]);
-		else {
-			 int position = binarySearchPairsDeque(sorted_arr, arr[i].first, 0, sorted_arr.size() - 1);
-			 sorted_arr.insert(sorted_arr.begin() + position,arr[i]);
-		}
+    if (i == 0)
+      sorted_arr.push_back(arr[i]);
+    else {
+      int position = binarySearchPairsDeque(sorted_arr, arr[i].first, 0,
+                                            sorted_arr.size() - 1);
+      sorted_arr.insert(sorted_arr.begin() + position, arr[i]);
+    }
   }
   // create main chain
   std::deque<int> main_chain;
@@ -282,32 +279,34 @@ bool PmergeMe::sort_deque(void) {
   for (size_t i = 0; i < _deque.size() / 2; i++) {
     int jacob_pos = _djacob[i] - 1;
     int value = sorted_arr[jacob_pos].second;
-    int position = binarySearchD(main_chain, value, 0, main_chain.size() - 1);
+    int position =
+        binarySearchDeque(main_chain, value, 0, main_chain.size() - 1);
     main_chain.insert(main_chain.begin() + position, value);
   }
-	if (_has_straggler) {
-		int position = binarySearchD(main_chain, _straggler, 0, main_chain.size() - 1);
+  if (_has_straggler) {
+    int position =
+        binarySearchDeque(main_chain, _straggler, 0, main_chain.size() - 1);
     main_chain.insert(main_chain.begin() + position, _straggler);
-	}
-	_sorted_deque = main_chain;
+  }
+  _sorted_deque = main_chain;
   return (true);
 }
 
-bool PmergeMe::sort_both(void)
-{
-	clock_t start_vector = std::clock();
-	sort_vector();
-	clock_t end_vector = std::clock();
-	clock_t start_deque = std::clock();
-	sort_deque();
-	clock_t end_deque = std::clock();
-	std::cout << "Before: ";
-	printVector(_vector);
-	std::cout << "After: ";
-	printVector(_sorted_vector);
-	std::cout << "std::vector[" << _vector.size() << "] = ";
-	print_time_diff(start_vector, end_vector);
-	std::cout << "std::deque[" << _deque.size() << "] = ";
-	print_time_diff(start_deque, end_deque);
-	return (true);
+bool PmergeMe::sort_both(void) {
+  clock_t start_vector = std::clock();
+  sort_vector();
+  clock_t end_vector = std::clock();
+  clock_t start_deque = std::clock();
+  sort_deque();
+  clock_t end_deque = std::clock();
+  std::cout << BLUE << "Before: ";
+  printVector(_vector);
+  std::cout << GREEN << "After: ";
+  printVector(_sorted_vector);
+  std::cout << PURPLE << "std::vector[" << _vector.size() << "] = ";
+  print_time_diff(start_vector, end_vector);
+  std::cout << "std::deque[" << _deque.size() << "] = ";
+  print_time_diff(start_deque, end_deque);
+  std::cout << RESET;
+  return (true);
 }

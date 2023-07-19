@@ -6,7 +6,7 @@
 /*   By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 14:15:24 by segarcia          #+#    #+#             */
-/*   Updated: 2023/07/14 10:37:41 by segarcia         ###   ########.fr       */
+/*   Updated: 2023/07/19 08:39:08 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ bool print_error(ERROR err) {
   case ERROR_ARGC:
     std::cout << "usage: <path>";
     break;
-  case DB_FILE:
+  case DB_FILE: 
     std::cout << "DB error: no file found";
     break;
   case DB_EMPTY_FILE:
@@ -120,7 +120,7 @@ int custom_stoi(const std::string &str) {
   return negative ? -result : result;
 }
 
-double customStod(const std::string &str) {
+double customStod(const std::string &str){
   std::istringstream iss(str);
   double number;
 
@@ -128,7 +128,6 @@ double customStod(const std::string &str) {
     print_error(UNKNOWN_ERROR);
     exit(1);
   }
-
   return number;
 }
 
