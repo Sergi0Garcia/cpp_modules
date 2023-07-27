@@ -6,7 +6,7 @@
 /*   By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/16 15:54:55 by segarcia          #+#    #+#             */
-/*   Updated: 2023/07/19 09:20:58 by segarcia         ###   ########.fr       */
+/*   Updated: 2023/07/27 11:35:26 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,3 +39,6 @@ public:
   bool sort_deque(void);
   bool sort_both(void);
 };
+
+// https://ebang.tistory.com/104
+// https://github.com/decidedlyso/merge-insertion-sort

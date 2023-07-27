@@ -6,13 +6,15 @@
 /*   By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 09:36:41 by segarcia          #+#    #+#             */
-/*   Updated: 2023/07/19 13:08:22 by segarcia         ###   ########.fr       */
+/*   Updated: 2023/07/27 11:19:09 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
 #include "Errors.hpp"
 #include "Utils.hpp"
+#include <sys/unistd.h>
+#include <unistd.h>
 
 BitcoinExchange::BitcoinExchange() {}
 
@@ -54,28 +56,28 @@ bool BitcoinExchange::valid_arguments(const int argc) {
 
 bool BitcoinExchange::valid_database() {
   std::ifstream infile(DB_CSV_PATH);
-  if (!infile)
+  if (access(DB_CSV_PATH, F_OK) != 0)
     return (print_error(DB_FILE));
-  if (is_empty_file(infile))
-    return (print_error(DB_EMPTY_FILE));
   FILE *file = std::fopen(DB_CSV_PATH, "r");
   if (file == NULL)
     return (print_error(DB_READ_ACCESS));
   std::fclose(file);
+  if (is_empty_file(infile))
+    return (print_error(DB_EMPTY_FILE));
   infile.close();
   return (true);
 }
 
 bool BitcoinExchange::valid_input_file(const char *file_path) {
   std::ifstream infile(file_path);
-  if (!infile)
+  if (access(file_path, F_OK) != 0)
     return (print_error(INPUT_NOT_FOUND));
-  if (is_empty_file(infile))
-    return (print_error(INPUT_EMPTY_FILE));
   FILE *file = std::fopen(file_path, "r");
   if (file == NULL)
     return (print_error(INPUT_READ_ACCESS));
   std::fclose(file);
+  if (is_empty_file(infile))
+    return (print_error(INPUT_EMPTY_FILE));
   std::string temp;
   std::getline(infile, temp);
   if (temp != "date | value")

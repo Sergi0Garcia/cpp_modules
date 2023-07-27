@@ -6,13 +6,14 @@
 /*   By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 21:06:43 by segarcia          #+#    #+#             */
-/*   Updated: 2023/07/19 09:13:41 by segarcia         ###   ########.fr       */
+/*   Updated: 2023/07/27 11:09:25 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 #include "Colors.hpp"
 #include "Utils.hpp"
+#include <filesystem>
 #include <fstream>
 #include <iomanip>
 #include <iostream>
