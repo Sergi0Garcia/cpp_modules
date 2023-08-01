@@ -6,7 +6,7 @@
 /*   By: segarcia <segarcia@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 12:07:20 by segarcia          #+#    #+#             */
-/*   Updated: 2023/07/19 12:16:58 by segarcia         ###   ########.fr       */
+/*   Updated: 2023/08/01 11:14:54 by segarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ bool RPN::run(void) {
   long num1, num2, ans;
 
   this->_input = trimWhitespace(_input);
+  if (is_empty_str(this->_input))
+    return (print_error(EMPTY_STRING));
   for (size_t i = 0; i < _input.length(); i++) {
     c = _input[i];
     if (isdigit(c))
@@ -62,8 +64,6 @@ bool RPN::run(void) {
       }
     }
   }
-  if (is_empty_str(_input))
-    return (print_error(EMPTY_STRING));
   if (_stk.size() != 1)
     return (print_error(MISSING_OPERATOR_MANY_NUMBERS));
   ans = _stk.top();
